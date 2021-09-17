@@ -9,19 +9,19 @@ function prepareStat($stat){
 }
 
 function selectTableLimit($tableName,$limit){
-    $resultSelect =  queryStat('SELECT *FROM '.$tableName.' limit '.$limit);
-    return $resultSelect->fetchAll();
+    $resultSelect =  queryStat('SELECT *FROM '.$tableName.' limit '.$limit)->fetchAll();
+    return $resultSelect;
 }
     
 function selectTable($tableName){
-    $resultSelect = queryStat('SELECT *FROM '.$tableName);
-    return $resultSelect->fetchAll();
+    $resultSelect = queryStat('SELECT *FROM '.$tableName)->fetchAll();
+    return $resultSelect;
     
 }
 
 function selectTableOrd($tableName,$limit,$order){
-    $resultSelect =  queryStat('SELECT *FROM '.$tableName.' limit '.$limit.' ORDER BY '.$order);
-    return $resultSelect->fetchAll();
+    $resultSelect =  queryStat('SELECT *FROM '.$tableName.' limit '.$limit.' ORDER BY '.$order)->fetchAll();
+    return $resultSelect;
 }
 
 
@@ -41,8 +41,7 @@ function rowCount($tableName){
     return $resultSelect->fetchColumn();
 }
 function rowCountLimit($tableName,$status,$num){
-    global $connect;
-    $resultSelect = $connect->query('SELECT count(*) FROM '.$tableName." Where ".$status.'='.$num);
+    $resultSelect = queryStat('SELECT count(*) FROM '.$tableName." Where ".$status.'='.$num);
     return $resultSelect->fetchColumn();
 }
 
