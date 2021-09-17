@@ -5,73 +5,47 @@
 */
 
 
-function query_stat($stat){
+function queryStat($stat){
     global $connect;
-    $result = $connect->query($stat);
-    return $result;
-}
-    /*
-        * SelectTablelimit function take 2 arguments
-            *  TableName 
-            *  count of row that you will display in query
-    */
-
-function SelectTableLimit($tableName,$limit){
-    $resultSelect =  query_stat('SELECT *FROM '.$tableName.' limit '.$limit);
-    $getresult  = $resultSelect->fetchAll();
-   /* 
-    $resultSelect = $connect->prepare('SELECT *FROM '.$tableName.' limit '.$limit);
-    $resultSelect->execute();*/
-    return $getresult;
-}
-    /*
-        * SelectTable function take one argument
-            *  TableName that you will select from it.
-    */
-function SelectTable($tableName){
-    $resultSelect = query_stat('SELECT *FROM '.$tableName);
-    $getresult  = $resultSelect->fetchAll();
-   /* 
-    $resultSelect = $connect->prepare('SELECT *FROM '.$tableName.' limit '.$limit);
-    $resultSelect->execute();*/
-
-
-    return $getresult;
+    return $connect->query($stat);
 }
 
-function SelectTableOrd($tableName,$limit,$order){
-    $resultSelect =  query_stat('SELECT *FROM '.$tableName.' limit '.$limit.' ORDER BY '.$order);
-    $getresult  = $resultSelect->fetchAll();
-   /* 
-    $resultSelect = $connect->prepare('SELECT *FROM '.$tableName.' limit '.$limit);
-    $resultSelect->execute();*/
-    return $getresult;
+function selectTableLimit($tableName,$limit){
+    $resultSelect =  queryStat('SELECT *FROM '.$tableName.' limit '.$limit);
+    return $resultSelect->fetchAll();
+}
+    
+function selectTable($tableName){
+    $resultSelect = queryStat('SELECT *FROM '.$tableName);
+    return $resultSelect->fetchAll();
+    
+}
+
+function selectTableOrd($tableName,$limit,$order){
+    $resultSelect =  queryStat('SELECT *FROM '.$tableName.' limit '.$limit.' ORDER BY '.$order);
+    return $resultSelect->fetchAll();
 }
 
 
-function SelectTableCondition($tableName,$user_id,$session_user_id){
-    $resultSelect =  query_stat("Select *From ".$tableName." Where ".$user_id."= ".$session_user_id);
-    $getresult  = $resultSelect->fetch(PDO::FETCH_ASSOC);
-    return $getresult;
+function selectTableCondition($tableName,$user_id,$session_user_id){
+    $resultSelect =  queryStat("Select *From ".$tableName." Where ".$user_id."= ".$session_user_id);
+    return $resultSelect->fetch(PDO::FETCH_ASSOC);
 }
-function SelectTableConditionLimit($tableName,$cat_status,$status,$limit){
-    $resultSelect =  query_stat("Select *From ".$tableName.' Where '.$cat_status.'= '.$status.' limit '.$limit);
-    $getresult  = $resultSelect->fetchAll();
-    return $getresult;
+function selectTableConditionLimit($tableName,$cat_status,$status,$limit){
+    $resultSelect =  queryStat("Select *From ".$tableName.' Where '.$cat_status.'= '.$status.' limit '.$limit);
+    return $resultSelect->fetchAll();
 }
 
 
 /***/
-function Row_Count($tableName){
-    $resultSelect =  query_stat('SELECT count(*) FROM '.$tableName);
-    $row_count    = $resultSelect->fetchColumn();
-    return $row_count;
+function rowCount($tableName){
+    $resultSelect =  queryStat('SELECT count(*) FROM '.$tableName);
+    return $resultSelect->fetchColumn();
 }
-function Row_CountLimit($tableName,$status,$num){
+function rowCountLimit($tableName,$status,$num){
     global $connect;
     $resultSelect = $connect->query('SELECT count(*) FROM '.$tableName." Where ".$status.'='.$num);
-    $row_count    = $resultSelect->fetchColumn();
-    return $row_count;
+    return $resultSelect->fetchColumn();
 }
 
 /* multiple join
@@ -85,10 +59,8 @@ AND //add any additional filters HERE
 */
 
 function joinTable($tbl_1,$tbl_2,$cat_id,$post_id){
-    //global $connect;
-    $resultSelect  =  query_stat("SELECT ".$tbl_1.'.* ,'.$tbl_2.'.*'." FROM ".$tbl_1." INNER JOIN ".$tbl_2." ON ".$tbl_1.'.'.$cat_id."=".$tbl_2.'.'.$cat_id);
-    $joinTable = $resultSelect->fetchAll();
-    return $joinTable;
+    $resultSelect  =  queryStat("SELECT ".$tbl_1.'.* ,'.$tbl_2.'.*'." FROM ".$tbl_1." INNER JOIN ".$tbl_2." ON ".$tbl_1.'.'.$cat_id."=".$tbl_2.'.'.$cat_id);
+    return $resultSelect->fetchAll();
 }
 
 function UpdateTable($tableName,$old_name,$new_name,$row_update_id,$row_id){
@@ -184,13 +156,9 @@ function first_words($text, $count)
   return $matches[0];
 }*/
 
-
 /*
     * function to git title in the url
-
 */
-
-
 function get_title($url){
   $str = file_get_contents($url);
   if(strlen($str)>0){
