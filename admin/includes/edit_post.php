@@ -8,7 +8,7 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label for="title">post Title</label>
-                <input type="text" class="form-control" name="post_title" value="<?php echo $post_info['post_title']; ?>" >
+                <input type="text" class="form-control" name="post_title" value="<?= $post_info['post_title']; ?>" >
             </div>
         </div>
         
@@ -20,7 +20,7 @@
             <?php
             $get_info = selectTable('categories');
             foreach($get_info as $row):?>
-              <option value="<?php echo $row['category_id'];?>" name='cat'><?php echo $row['category_name'];?></option>
+              <option value="<?= $row['category_id'];?>" name='cat'><?= $row['category_name'];?></option>
             <?php endforeach;?>
                 </select> 
             </div>
@@ -29,7 +29,7 @@
      <div class="form-group">
 		<label>status</label>
 		<select name="post_status" id="" class="form-control">
-			<option value="<?php echo $post_info['post_status']; ?>"><?php echo $post_info['post_status']; ?></option>
+			<option value="<?= $post_info['post_status']; ?>"><?= $post_info['post_status']; ?></option>
 			<?php
             $post_status = $post_info['post_status'];
 		    if($post_status =="published"){
@@ -52,17 +52,17 @@
         if($post_img ==''){
             echo 'No image';
         }else{?>
-        <img src="img/products/<?php echo $post_img?>" width="50" height="50" >
+        <img src="img/products/<?= $post_img?>" width="50" height="50" >
         <?php }  ?>
        
 	</div>
 	<div class="form-group">
 		<label for="post_tags">product tags</label>
-		<input type="text" class="form-control" name="post_tags" value="<?php echo $post_info['post_tags'];?>" data-role="tagsinput">
+		<input type="text" class="form-control" name="post_tags" value="<?= $post_info['post_tags'];?>" data-role="tagsinput">
 	</div>
 	<div class="form-group">
 		<label for="title">post content</label>
-		<textarea class="form-control" name="post_content" id="content-box" cols="30" rows="10" ><?php echo $post_info['post_content'];?> </textarea>
+		<textarea class="form-control" name="post_content" id="content-box" cols="30" rows="10" ><?= $post_info['post_content'];?> </textarea>
 	</div>
 	
 <?php } ?>
