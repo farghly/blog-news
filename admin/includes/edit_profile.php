@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-               <img class="media-object img-circle" src="img/profile/<?php echo $author_info['author_image'];?>" width="150" height="150" style="margin:0 auto;" >
+               <img class="media-object img-circle" src="img/profile/<?= $author_info['author_image'];?>" width="150" height="150" style="margin:0 auto;" >
             </div>
         </div>
         
@@ -19,19 +19,19 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="user_firstname">first Name</label>
-                <input type="text" class="form-control" name="author_fname" value="<?php echo $author_info['author_fname']; ?>" >
+                <input type="text" class="form-control" name="author_fname" value="<?= $author_info['author_fname']; ?>" >
             </div>
         </div>
          <div class="col-md-6">
             <div class="form-group">
                 <label for="user_lastname">last Name</label>
-                <input type="text" class="form-control" name="author_lname" id="user_lastname" value="<?php echo $author_info['author_lname'];?>" >
+                <input type="text" class="form-control" name="author_lname" id="user_lastname" value="<?= $author_info['author_lname'];?>" >
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
                 <label for="email">e-mail</label>
-                <input type="email" class="form-control" name="author_email" disabled value="<?php echo $author_info['author_email'];?>" >
+                <input type="email" class="form-control" name="author_email" disabled value="<?= $author_info['author_email'];?>" >
             </div>
         </div>
          <?php 
@@ -41,7 +41,7 @@
             <div class="form-group">
                 <label for="role">Role</label>
                 <select name="user_role" id="" class="form-control">
-                    <option value="<?php echo $author_info['author_role']; ?>"><?php echo $author_info['author_role']; ?></option>
+                    <option value="<?= $author_info['author_role']; ?>"><?= $author_info['author_role']; ?></option>
                     <?php
                     if($role == "admin"){
                         echo "<option value='author'>author</option>";
