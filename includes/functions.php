@@ -1,10 +1,4 @@
 <?php
-/*
-    * PDO URL:http://php.net/manual/en/book.pdo.php
-    * 
-*/
-
-
 function queryStat($stat){
     global $connect;
     return $connect->query($stat);
