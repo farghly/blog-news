@@ -3,6 +3,10 @@ function queryStat($stat){
     global $connect;
     return $connect->query($stat);
 }
+function prepareStat($stat){
+    global $connect;
+    return $connect->prepare($stat);
+}
 
 function selectTableLimit($tableName,$limit){
     $resultSelect =  queryStat('SELECT *FROM '.$tableName.' limit '.$limit);
@@ -60,27 +64,22 @@ function joinTable($tbl_1,$tbl_2,$cat_id,$post_id){
 function UpdateTable($tableName,$old_name,$new_name,$row_update_id,$row_id){
     global $connect;
 
-   $updateTable =$connect->query('UPDATE '.$tableName.' SET '.$old_name.'='."'$new_name'".' WHERE '.$row_update_id.'='.$row_id);
-    
-    $updateResult = $updateTable->execute();
-    return $updateTable;
+   $updateTable =queryStat('UPDATE '.$tableName.' SET '.$old_name.'='."'$new_name'"
+                                             .' WHERE '.$row_update_id.'='.$row_id);
+    return $updateTable->execute();
 }
 
 function DeleteRow($tableName,$row_id,$post_id){
-    global $connect;
-	$query   = $connect->prepare("DELETE FROM ".$tableName.' WHERE '.$row_id
+	$query   = prepareStat("DELETE FROM ".$tableName.' WHERE '.$row_id
     .'='.$post_id);
-    $affected = $query->execute();
-    return $affected;
+    return $query->execute();
 }
 
 function InsertData($tableName,$columns,$values){
-    global $connect;
-    $resultSelect = $connect->prepare('INSERT INTO '.$tableName.' ('.$columns.')'. ' VALUES '.'('."'$values'".')');
-    $getresult  = $resultSelect->execute();;
-    return $getresult;
+    $resultSelect = prepareStat('INSERT INTO '.$tableName.' ('.$columns.')'. ' VALUES '.'('."'$values'".')');
+   return $resultSelect->execute();;
+  
 }
-
 
 function pageLocation($location){
     return header("location:".$location.".php");
