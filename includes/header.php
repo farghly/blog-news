@@ -55,7 +55,7 @@
                 
                     $catResults = selectTableLimit('categories','4');
                     foreach($catResults as $row):?>
-                    <li><a href="category.php?cat_id"><?php echo $row['category_name'];?></a></li>
+                    <li><a href="category.php?cat_id"><?= $row['category_name'];?></a></li>
                   <?php endforeach;?>
                 <li>
                     <p>
@@ -142,7 +142,7 @@
                         <li><a href="index.php">Home</a></li>
                         <?php $get_info =    selectTableConditionLimit('categories','category_status',1,3);
                             foreach($get_info as $row):?>
-                               <li><a href="index.php"><?php echo $row['category_name'];?></a></li>
+                               <li><a href="index.php"><?= $row['category_name'];?></a></li>
                        <?php endforeach; ?>
                         
                     <li class="mega">
