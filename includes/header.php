@@ -53,7 +53,7 @@
             <ul>
                  <?php
                 
-                    $catResults = SelectTableLimit('categories','4');
+                    $catResults = selectTableLimit('categories','4');
                     foreach($catResults as $row):?>
                     <li><a href="category.php?cat_id"><?php echo $row['category_name'];?></a></li>
                   <?php endforeach;?>
@@ -140,7 +140,7 @@
                             * check file includes/function.php to know how SelectTable work
                         */?>
                         <li><a href="index.php">Home</a></li>
-                        <?php $get_info =       SelectTableConditionLimit('categories','category_status',1,3);
+                        <?php $get_info =    selectTableConditionLimit('categories','category_status',1,3);
                             foreach($get_info as $row):?>
                                <li><a href="index.php"><?php echo $row['category_name'];?></a></li>
                        <?php endforeach; ?>
