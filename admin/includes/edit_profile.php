@@ -1,9 +1,9 @@
 <?php
 	if(isset($_GET['edit_profile'])){
     if($_SESSION['author_role']=='admin'){
-    $author_info = SelectTableCondition('authors','author_id',$_GET['edit_profile']);
+    $author_info = selectTableCondition('authors','author_id',$_GET['edit_profile']);
     }else{
-       $author_info = SelectTableCondition('authors','author_id',$_SESSION['author_id']); 
+       $author_info = selectTableCondition('authors','author_id',$_SESSION['author_id']); 
     }
 	   ?>
 

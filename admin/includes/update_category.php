@@ -3,7 +3,7 @@
 		  	<?php
 				if(isset($_GET['edit_cat'])){
 				$cat_id     = $_GET['edit_cat'];
-                $cat_info   = SelectTableCondition('categories','category_id',$cat_id);
+                $cat_info   = selectTableCondition('categories','category_id',$cat_id);
                 ?>   
 	    <div class="input-group">
 		  <input value="<?php echo $cat_info['category_name']; ?>" type="text" class="form-control edit" name="cat_update">			  

@@ -68,7 +68,7 @@
                 </li>
                 <li class="dropdown">
                    <?php
-                    $author_info = SelectTableCondition('authors','author_id',$_SESSION['author_id']);
+                    $author_info = selectTableCondition('authors','author_id',$_SESSION['author_id']);
                     ?>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $author_info['author_fname'].' '.$author_info['author_lname']; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -101,7 +101,7 @@
                 <ul class="nav navbar-nav side-nav">
 					<div class="media">
 					<a class="pull-left" href="#">
-                      <?php /*$getinfo =          SelectTableCondition('authors','author_id',$_SESSION['author_id']);*/
+                      <?php /*$getinfo =          selectTableCondition('authors','author_id',$_SESSION['author_id']);*/
                       $author_image =$author_info['author_image'];
                       
                       ?>

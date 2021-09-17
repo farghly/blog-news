@@ -11,7 +11,7 @@ include('config.file.php');
         ?>
 			<div class="col-lg-12">
                 <?php 
-                  $comment_info = Row_Count('comment');
+                  $comment_info = rowCount('comment');
                     if($comment_info > 0){
                 ?>
                         <h2>comments</h2>
@@ -36,7 +36,7 @@ include('config.file.php');
                                 <tbody>
                                  <?php
                                     $i = 1;
-                                    $comment_info = SelectTable('comment');
+                                    $comment_info = selectTable('comment');
                                     foreach($comment_info as $row):
                                 ?>
                                     <tr>

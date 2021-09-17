@@ -28,7 +28,7 @@
                                 <tbody>
                                    <?php
                                    // $i = 1;
-                                    $author_info = SelectTable('authors');
+                                    $author_info = selectTable('authors');
                                     foreach($author_info as $row):
                                 ?>
                                     <tr>

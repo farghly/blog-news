@@ -44,7 +44,7 @@
       SessionDisplay('danger','message_danger');
 ?> 
     <?php 
-           $posts_count = Row_Count('posts');
+           $posts_count = rowCount('posts');
             if($posts_count > 0){
                 ?>
 	<!--<div class="btn btn-success success"><h3>Posts</h3></div>-->

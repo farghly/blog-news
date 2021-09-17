@@ -1,7 +1,7 @@
 <?php 
 	if(isset($_GET['p_id'])){
 		 $the_post_id = $_GET['p_id'];
-         $post_info = SelectTableCondition('posts','post_id',$the_post_id);
+         $post_info = selectTableCondition('posts','post_id',$the_post_id);
 	     ?>
 <form action="" method="post" enctype="multipart/form-data" id="edit-form">
     <div class="row">
@@ -18,7 +18,7 @@
            <label for="categories">categories</label>
           <select name="post_cat_id" id='' class="form-control"> 
             <?php
-            $get_info = SelectTable('categories');
+            $get_info = selectTable('categories');
             foreach($get_info as $row):?>
               <option value="<?php echo $row['category_id'];?>" name='cat'><?php echo $row['category_name'];?></option>
             <?php endforeach;?>

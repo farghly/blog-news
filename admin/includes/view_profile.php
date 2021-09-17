@@ -3,9 +3,9 @@
    
 	if(isset($_GET['view_profile'])){
     if($_SESSION['author_role']=='admin'){
-    $author_info = SelectTableCondition('authors','author_id',$_GET['view_profile']);
+    $author_info = selectTableCondition('authors','author_id',$_GET['view_profile']);
     }else{
-       $author_info = SelectTableCondition('authors','author_id',$_SESSION['author_id']); 
+       $author_info = selectTableCondition('authors','author_id',$_SESSION['author_id']); 
     }
      /*$query     = "SELECT *FROM users WHERE user_id='$the_user_id'";
         $run_query = mysqli_query($connect,$query);

@@ -118,7 +118,7 @@ include("config.file.php");
                                 <tr>
                                  <?php
                                     //selectTable -->table name
-                                    $cat_info = SelectTable('categories');
+                                    $cat_info = selectTable('categories');
                                     foreach($cat_info as $cat):
                                  ?>
 									<td><?php counter(); ?></td>
