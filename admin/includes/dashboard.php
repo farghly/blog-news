@@ -8,7 +8,7 @@
                 <div class="row">
                  <div class="col-lg-12">
                         <h1 class="page-header">
-                            welcome to <?php echo $_SESSION['author_role'];?> <small><?php echo $author_info['author_fname'];?></small>
+                            welcome to <?= $_SESSION['author_role'];?> <small><?= $author_info['author_fname'];?></small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
@@ -27,7 +27,7 @@
                                         <i class="fa fa-file-text fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $posts_count=Row_Count('posts'); ?></div>
+                                        <div class="huge"><?= $posts_count=rowCount('posts'); ?></div>
                                         <div>Posts</div>
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
                                         <i class="fa fa-shopping-cart fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $comments_count=Row_Count('comment'); ?></div>
+                                        <div class="huge"><?php echo $comments_count=rowCount('comment'); ?></div>
                                         <div>
                                             comments
                                         </div>
@@ -74,7 +74,7 @@
                                         <i class="fa fa-users fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $authors_count=Row_Count('authors'); ?></div>
+                                        <div class="huge"><?php echo $authors_count=rowCount('authors'); ?></div>
                                         <div>users</div>
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@
                                         <i class="fa fa-list fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $categories_count=Row_Count('categories'); ?></div>
+                                        <div class="huge"><?php echo $categories_count=rowCount('categories'); ?></div>
                                         <div>categories</div>
                                     </div>
                                 </div>
@@ -116,8 +116,8 @@
                 
                 <!-- /.row -->
 				 <?php
-				  $active_category = Row_CountLimit('categories','category_status','1');
-				  $active_authors  = Row_CountLimit('authors','author_status','1');
+				  $active_category = rowCountLimit('categories','category_status','1');
+				  $active_authors  = rowCountLimit('authors','author_status','1');
 			     ?>
 					<!--========================== start of script chart =========================-->
 					<div class="row">
