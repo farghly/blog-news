@@ -62,8 +62,6 @@ function joinTable($tbl_1,$tbl_2,$cat_id,$post_id){
 }
 
 function UpdateTable($tableName,$old_name,$new_name,$row_update_id,$row_id){
-    global $connect;
-
    $updateTable =queryStat('UPDATE '.$tableName.' SET '.$old_name.'='."'$new_name'"
                                              .' WHERE '.$row_update_id.'='.$row_id);
     return $updateTable->execute();
@@ -129,9 +127,7 @@ function isLoginSessionExpired() {
 	return false;
 }
 
- 
 /*select specific number of words -->support english and arabic language*/
-
 function first_words($text, $count)
 {
     $words = explode(' ', $text);
