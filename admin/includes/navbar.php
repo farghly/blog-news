@@ -194,7 +194,7 @@
             <!-- /.navbar-collapse -->
         </nav>
 
-    
+    <!-- start of modal to change image -->
     <div class="modal fade in" id="change_photo">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -225,7 +225,8 @@
         </div>
     
     </div>
-   <?php// echo date('d-m-Y-H:m:s'); ?>
+    <!-- end of modal -->
+
 <?php
     if($author_image !=""){
      $_SESSION['delete_image'] = 'img/profile/'.$author_image;   

@@ -12,6 +12,8 @@ echo CSS_PATH;*/
         * includes files as array
         * define include folder path 
     */
+
+
 $includes = array('header.php','navbar.php','dashboard.php');
 foreach($includes as $include){
    require (INCLUDE_PATH.$include);

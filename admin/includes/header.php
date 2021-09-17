@@ -24,7 +24,8 @@ if(!isset($_SESSION['author_email']) && !isset($_SESSION['author_password'])) {
     <link rel="shortcut icon" href="img/favicon_3.png">
     <!-- Bootstrap Core CSS -->
 	
-	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+   <!--	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">-->
     <link rel="stylesheet" href="css/css_tag.css" type="text/css">
 	<!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  >
@@ -53,7 +54,7 @@ $urldashborad =$_SERVER['HTTP_HOST']."/admin/";
 $urldashboradindex =$_SERVER['HTTP_HOST']."/admin/index.php";
 if($_SESSION['author_role']=="admin" && ($urldashborad==$link || $urldashboradindex==$link)):
 ?>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 <?php endif; ?>
 <?php 
  $url = $_SERVER['HTTP_HOST']."/admin/view_posts.php?source=add_post";

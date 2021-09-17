@@ -1,8 +1,9 @@
 <?php 
 define('DB_HOST','localhost');
 define('DB_USER','root');
-define('DB_PASSWORD','Farghly');
-define('DB_NAME','loca_pro');
+define('DB_PASSWORD','');
+define('DB_NAME','loca_pro2');
+
 
 try{
     $connect = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME,DB_USER,DB_PASSWORD);

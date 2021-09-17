@@ -4,6 +4,7 @@
     * 
 */
 
+
 function query_stat($stat){
     global $connect;
     $result = $connect->query($stat);
@@ -14,9 +15,9 @@ function query_stat($stat){
             *  TableName 
             *  count of row that you will display in query
     */
+
 function SelectTableLimit($tableName,$limit){
-    global $connect;
-    $resultSelect = $connect->query('SELECT *FROM '.$tableName.' limit '.$limit);
+    $resultSelect =  query_stat('SELECT *FROM '.$tableName.' limit '.$limit);
     $getresult  = $resultSelect->fetchAll();
    /* 
     $resultSelect = $connect->prepare('SELECT *FROM '.$tableName.' limit '.$limit);
@@ -33,12 +34,13 @@ function SelectTable($tableName){
    /* 
     $resultSelect = $connect->prepare('SELECT *FROM '.$tableName.' limit '.$limit);
     $resultSelect->execute();*/
+
+
     return $getresult;
 }
 
 function SelectTableOrd($tableName,$limit,$order){
-    global $connect;
-    $resultSelect = $connect->query('SELECT *FROM '.$tableName.' limit '.$limit.' ORDER BY '.$order);
+    $resultSelect =  query_stat('SELECT *FROM '.$tableName.' limit '.$limit.' ORDER BY '.$order);
     $getresult  = $resultSelect->fetchAll();
    /* 
     $resultSelect = $connect->prepare('SELECT *FROM '.$tableName.' limit '.$limit);
@@ -48,14 +50,12 @@ function SelectTableOrd($tableName,$limit,$order){
 
 
 function SelectTableCondition($tableName,$user_id,$session_user_id){
-    global $connect;
-    $resultSelect = $connect->query("Select *From ".$tableName." Where ".$user_id."= ".$session_user_id);
+    $resultSelect =  query_stat("Select *From ".$tableName." Where ".$user_id."= ".$session_user_id);
     $getresult  = $resultSelect->fetch(PDO::FETCH_ASSOC);
     return $getresult;
 }
 function SelectTableConditionLimit($tableName,$cat_status,$status,$limit){
-    global $connect;
-    $resultSelect = $connect->query("Select *From ".$tableName.' Where '.$cat_status.'= '.$status.' limit '.$limit);
+    $resultSelect =  query_stat("Select *From ".$tableName.' Where '.$cat_status.'= '.$status.' limit '.$limit);
     $getresult  = $resultSelect->fetchAll();
     return $getresult;
 }
@@ -63,8 +63,7 @@ function SelectTableConditionLimit($tableName,$cat_status,$status,$limit){
 
 /***/
 function Row_Count($tableName){
-    global $connect;
-    $resultSelect = $connect->query('SELECT count(*) FROM '.$tableName);
+    $resultSelect =  query_stat('SELECT count(*) FROM '.$tableName);
     $row_count    = $resultSelect->fetchColumn();
     return $row_count;
 }
@@ -94,8 +93,8 @@ function joinTable($tbl_1,$tbl_2,$cat_id,$post_id){
 
 function UpdateTable($tableName,$old_name,$new_name,$row_update_id,$row_id){
     global $connect;
-    
-   $updateTable =$connect->query('UPDATE '.$tableName.' SET '.$old_name.'='."'$new_name'".' WHERE '.$row_update_id.'='.$row_id); 
+
+   $updateTable =$connect->query('UPDATE '.$tableName.' SET '.$old_name.'='."'$new_name'".' WHERE '.$row_update_id.'='.$row_id);
     
     $updateResult = $updateTable->execute();
     return $updateTable;
@@ -107,7 +106,6 @@ function DeleteRow($tableName,$row_id,$post_id){
     .'='.$post_id);
     $affected = $query->execute();
     return $affected;
-
 }
 
 function InsertData($tableName,$columns,$values){
@@ -127,13 +125,16 @@ function pageLocationSpecial($location){
 
 function SessionDisplay($type,$message_name){
    if(isset($_SESSION[$message_name])):?>
-    <div class="alert alert-<?php echo $type;?> text-center"><h4>
+    <ul>
+       <li><div class="alert alert-<?php echo $type;?> text-center"><i class="fa fa-power-off"></i>
     <?php
     echo $_SESSION[$message_name];
     unset($_SESSION[$message_name]);
     ?>
-    </h4>
-    </div>          
+    
+    </div> 
+    </li>
+   </ul>         
 <?php endif;}?>
 <?php
 function SessionMessage($type,$txt){
@@ -178,10 +179,10 @@ function first_words($text, $count)
     return $result;
 }
 /*select specific number of words -->support english language only*/
-function get_words($sentence, $count) {
+/*function get_words($sentence, $count) {
   preg_match("/(?:\w+(?:\W+|$)){0,$count}/", $sentence, $matches);
   return $matches[0];
-}
+}*/
 
 
 /*

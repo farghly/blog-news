@@ -100,6 +100,5 @@
 	<div class="form-group">
       <input type="submit" class="btn btn-success pull-right" name="update_user" value="update user" >
     </div>
-	</div>
 </div>
 </form>

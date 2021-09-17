@@ -59,9 +59,9 @@ $("input").keypress(function(event) {
 });
 
 $(document).ready(function(){
-    $('.alert-success,.alert-danger').delay(2000).slideUp(2000);
+    $('.alert-success,.alert-danger').delay(2000).fadeOut(2000);
     
-    $("input").val();
+    //$("input").val();
     
 });
 /*======= ctrl + s to save ====================*/

@@ -35,3 +35,17 @@ span.tag.label.label-info{
 .post-title{
     color: black;
 }
+
+.alert-success,.alert-danger{
+    display: block;
+    position:absolute;
+    float: right;
+    /*text-align:center;*/
+    z-index: 10000;
+    top:0;
+    left: 300px;
+    font-size: 18px;
+}
+li{
+    list-style: none;
+}
