@@ -59,7 +59,9 @@ if($_SESSION['author_role']=="admin" && ($urldashborad==$link || $urldashboradin
 <?php 
  $url = $_SERVER['HTTP_HOST']."/admin/view_posts.php?source=add_post";
 if(isset($_GET['p_id'])|| $link == $url) :?> 
-   <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/ob2z96bqz0k2wmu95zjfl2n4n4pzmmmlsl2zovinrp97sr56/tinymce/5/tinymce.min.js" 
+     referrerpolicy="origin"></script>
+  <script>tinymce.init({selector:'textarea'});</script>
   <link rel="stylesheet" href="css/bootstrap-tagsinput.css" type="text/css">
  
  
