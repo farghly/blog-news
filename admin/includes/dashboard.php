@@ -121,7 +121,7 @@
 			     ?>
 					<!--========================== start of script chart =========================-->
 					<div class="row">
-                   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">
+                   <script type="text/javascript">
                       
                         // Load the Visualization API and the corechart package.
                       google.charts.load('current', {'packages':['bar']});
@@ -143,12 +143,12 @@
           chart: {
             title: '',
             subtitle: '',
+          }
         };
 
         var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
         chart.draw(data, options);
       }
-    }
            </script>
        <div id="columnchart_material" style="width: 900px; height: 500px;"></div>
 </div><!--end of class row -->

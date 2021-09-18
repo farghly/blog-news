@@ -64,6 +64,7 @@ if(isset($_GET['p_id'])|| $link == $url) :?>
  
  
 <?php endif; ?>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body>
