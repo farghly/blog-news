@@ -8,32 +8,17 @@
             case 'published':
                 UpdateTable('posts','post_status','published','post_id',$postValueId);  
                 SessionMessage('message_success','post published successfully');
-                /*pageLocation("view_posts");
-                exit();*/
                 break;
                 
                 case 'draft':
                 UpdateTable('posts','post_status','draft','post_id',$postValueId);
                 SessionMessage('message_danger','post draft successfully');
-                /*pageLocation("view_posts");
-                exit();*/
                 break;
                 
                 case 'delete':
-                DeleteRow("posts",'post_id',$postValueId);
-                // contract with session if you added
-                
+                DeleteRow("posts",'post_id',$postValueId); 
                 SessionMessage('message_danger','post delete successfully');
-                /*pageLocation("view_posts");
-                exit();*/
                 break;
-                /*case 'copy':
-                $query = "INSERT INTO posts(post_title,post_author,post_image,post_date,category_id) SELECT post_title,post_author,post_image,post_date,category_id from posts where post_id='$postValueId';";
-                $query_send =mysqli_query($connect,$query);
-                if(!$query_send){
-                    die("QUERY Failed" .mysqli_error());
-                }
-                break;*/
         }
         }
         
@@ -104,23 +89,18 @@
                                    //echo "Hello from here";
                                     $get_info = joinTable('posts','categories','category_id','post_id');
                                     foreach($get_info as $row):?>
-                                     <?php  
-                                        /*echo $row['post_title'].' ';
-                                        echo $row['category_name'];*/
-                                        ?>
-                                        
+                                    
                                     <tr>
                                        <td><input class="checkBoxes" type="checkbox" name="checkBoxArray[]" value="<?php echo $row['post_id']; ?>"></td>
                                         <td><?php counter(); ?></td>
-                                  
                                         <td>
                                         <a href="" class="post-title">
-                                        <?php echo first_words($row['post_title'], 5); ?>
+                                        <?= first_words($row['post_title'], 5); ?>
                                         </a>
                                         </td>
-                                        <!--<td><?php echo $row['post_tags']; ?></td>-->
-                                        <td><?php echo $row['category_name']; ?></td>
-                                        <td><img src="img/products/<?php echo $row['post_image'];?>" alt="No image" height="50" width="50"/></td>
+                                        <!--<td><?= $row['post_tags']; ?></td>-->
+                                        <td><?= $row['category_name']; ?></td>
+                                        <td><img src="img/products/<?= $row['post_image'];?>" alt="No image" height="50" width="50"/></td>
                                       
                                         
 									
@@ -145,7 +125,7 @@
 									
 									
 									<?php if($_SESSION['author_role']=="admin"):?>
-									<td><a rel="<?php echo $row['post_id']; ?>" href="javascript:void(0)" class="delete_link" ><div class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</div></a> </td>
+									<td><a rel="<?= $row['post_id']; ?>" href="javascript:void(0)" class="delete_link" ><div class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</div></a> </td>
                                    <?php endif;?>
                                     	<td><div class="btn btn-success"><i class="fa fa-eye "></i> View details</div></td>
                                     </tr>
