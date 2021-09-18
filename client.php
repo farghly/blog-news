@@ -58,7 +58,7 @@ while (true)
 			}
 			continue;							
 		}
-		
+		 // we will send email
 		
 		foreach ($resp as $row)
 		{
