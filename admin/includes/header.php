@@ -61,7 +61,7 @@ if($_SESSION['author_role']=="admin" && ($urldashborad==$link || $urldashboradin
 if(isset($_GET['p_id'])|| $link == $url) :?> 
     <script src="https://cdn.tiny.cloud/1/ob2z96bqz0k2wmu95zjfl2n4n4pzmmmlsl2zovinrp97sr56/tinymce/5/tinymce.min.js" 
      referrerpolicy="origin"></script>
-  <script>tinymce.init({selector:'textarea'});</script>
+  <script>tinymce.init({selector:'textarea',plugins: 'table'});</script>
   <link rel="stylesheet" href="css/bootstrap-tagsinput.css" type="text/css">
  
  
