@@ -49,7 +49,7 @@
                                         <i class="fa fa-shopping-cart fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $comments_count=rowCount('comment'); ?></div>
+                                        <div class="huge"><?= $comments_count=rowCount('comment'); ?></div>
                                         <div>
                                             comments
                                         </div>
@@ -74,7 +74,7 @@
                                         <i class="fa fa-users fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $authors_count=rowCount('authors'); ?></div>
+                                        <div class="huge"><?= $authors_count=rowCount('authors'); ?></div>
                                         <div>users</div>
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@
                                         <i class="fa fa-list fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $categories_count=rowCount('categories'); ?></div>
+                                        <div class="huge"><?= $categories_count=rowCount('categories'); ?></div>
                                         <div>categories</div>
                                     </div>
                                 </div>
@@ -138,7 +138,6 @@
                        echo "['{$element_text[$i]}'".","."{$element_count[$i]}],";
                     }
                     ?>
-   // ['posts',1000]
         ]);
         var options = {
           chart: {
