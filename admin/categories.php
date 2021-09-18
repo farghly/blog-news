@@ -122,7 +122,7 @@ include("config.file.php");
                                     foreach($cat_info as $cat):
                                  ?>
 									<td><?php counter(); ?></td>
-                                    <td><?php echo $cat['category_name']; ?></td>
+                                    <td><?= $cat['category_name']; ?></td>
                                   <?php  
                                    /*
                                         * edit_delete_link is a function take six arguments
