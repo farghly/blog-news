@@ -217,5 +217,5 @@ if(isset($_GET['published'])){
     pageLocation("view_posts");
 } 
 //delete post
-
+require_once 'delete_modal.php';
 ?>
