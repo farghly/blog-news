@@ -1,11 +1,14 @@
 <?php
-function queryStat($stat){
+function connect(){
     global $connect;
-    return $connect->query($stat);
+    return $connect;
+}
+
+function queryStat($stat){
+    return connect()->query($stat);
 }
 function prepareStat($stat){
-    global $connect;
-    return $connect->prepare($stat);
+    return connect()->prepare($stat);
 }
 
 function selectTableLimit($tableName,$limit){
@@ -60,16 +63,15 @@ function joinTable($tbl_1,$tbl_2,$cat_id,$post_id){
     return $resultSelect->fetchAll();
 }
 
-function UpdateTable($tableName,$old_name,$new_name,$row_update_id,$row_id){
+function updateTable($tableName,$old_name,$new_name,$row_update_id,$row_id){
    $updateTable =queryStat('UPDATE '.$tableName.' SET '.$old_name.'='."'$new_name'"
                                              .' WHERE '.$row_update_id.'='.$row_id);
     return $updateTable->execute();
 }
 
-function DeleteRow($tableName,$row_id,$post_id){
-	$query   = prepareStat("DELETE FROM ".$tableName.' WHERE '.$row_id
-    .'='.$post_id);
-    return $query->execute();
+function deleteRow($tableName,$row_id,$post_id){
+	$query   = prepareStat("DELETE FROM ".$tableName.' WHERE '.$row_id.'='.$post_id)->execute();
+    return $query;
 }
 
 function InsertData($tableName,$columns,$values){
@@ -88,7 +90,7 @@ function pageLocationSpecial($location){
 function SessionDisplay($type,$message_name){
    if(isset($_SESSION[$message_name])):?>
     <ul>
-       <li><div class="alert alert-<?php echo $type;?> text-center"><i class="fa fa-power-off"></i>
+       <li><div class="alert alert-<?= $type;?> text-center"><i class="fa fa-power-off"></i>
     <?php
     echo $_SESSION[$message_name];
     unset($_SESSION[$message_name]);
@@ -105,12 +107,12 @@ function SessionMessage($type,$txt){
 
 function counter(){
     static $a = 0;
-    $a++;
-    echo $a;
+    echo ++$a;  
 }
 
 function edit_delete_link($url,$id,$class,$name,$font,$txt){?>
-    <td><a href="<?php echo $url.'='.$id;?>"><div class='btn btn-<?php echo $class;?>' name="<?php echo $name;?>"><i class='fa fa-<?php echo $font;?>'></i><?php echo ' '.$txt;?></div></a></td>
+    <td><a href="<?= $url.'='.$id;?>"><div class='btn btn-<?= $class;?>' name="<?= $name;?>">
+    <i class='fa fa-<?= $font;?>'></i><?= ' '.$txt;?></div></a></td>
 <?php }
 
 // session expire
