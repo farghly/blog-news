@@ -1,5 +1,5 @@
 <?php 
-include("config.file.php");
+include("includes/config.file.php");
 ?>
 
 <div id="page-wrapper">
