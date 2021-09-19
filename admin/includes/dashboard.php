@@ -160,4 +160,3 @@
 
         </div>
         <!-- /#page-wrapper -->
-<?php include("includes/footer.php");?>
