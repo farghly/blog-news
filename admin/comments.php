@@ -84,7 +84,7 @@ include('includes/config.file.php');
 <?php include("includes/footer.php"); ?>
 <?php 
 if(isset($_GET['comment_delete'])){
-    DeleteRow('comment','comment_id',$_GET['comment_delete']);
+    deleteRow('comment','comment_id',$_GET['comment_delete']);
     SessionMessage('comment_delete','comment deleted successfully');
     /*$the_comment_id = $_GET['comment_delete'];
     $query          ="DELETE FROM comments where comment_id=$the_comment_id";
@@ -95,14 +95,14 @@ if(isset($_GET['comment_delete'])){
  <?php 
 if(isset($_GET['unapprove'])){
 
-UpdateTable('comment','comment_status','0','comment_id',$_GET['unapprove']);
+updateTable('comment','comment_status','0','comment_id',$_GET['unapprove']);
 SessionMessage('comment_unapprove','comment unapproved successfully');
 /*$unapprove_comment ="UPDATE comments SET comment_status='unapproved' WHERE comment_id='$unapprove_id'";
 $run_approve_comment = mysqli_query($connect , $unapprove_comment);*/
 PageLocation('comments');
 }
 if(isset($_GET['approve'])){
-UpdateTable('comment','comment_status','1','comment_id',$_GET['approve']);
+updateTable('comment','comment_status','1','comment_id',$_GET['approve']);
 SessionMessage('comment_approve','comment approved successfully');
 PageLocation('comments');
 }

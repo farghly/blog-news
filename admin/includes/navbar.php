@@ -242,7 +242,7 @@
            exit();
         }*/
         
-        $profile_update = UpdateTable('authors','author_image',$user_image,'author_id',$user_id);
+        $profile_update = updateTable('authors','author_image',$user_image,'author_id',$user_id);
         if($profile_update){
         unlink($_SESSION['delete_image']);
         unset($_SESSION['delete_image']);

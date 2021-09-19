@@ -10,7 +10,7 @@
 <?php } ?>
 		  <?php
                 /*
-                    * UpdateTable is a funcction take five arguments
+                    * updateTable is a funcction take five arguments
                         * Table name
                         * field name that we will update
                         * new name that you will write in the field
@@ -19,7 +19,7 @@
                 */
 		  		if(isset($_POST['update'])){
 				   $cat_update  = $_POST['cat_update'];
-                   UpdateTable('categories','category_name',$cat_update,'category_id',$cat_id);
+                   updateTable('categories','category_name',$cat_update,'category_id',$cat_id);
                    SessionMessage('message_update','category has been updated succesfully');
                    pageLocation('categories');
                 }

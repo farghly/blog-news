@@ -158,14 +158,14 @@ include("includes/config.file.php");
 	<?php
     
 if(isset($_GET['delete_cat'])){
-        $deletequery = DeleteRow('categories','category_id',$_GET['delete_cat']);
+        $deletequery = deleteRow('categories','category_id',$_GET['delete_cat']);
         SessionMessage('message_delete','category deleted successfully');
         pageLocation('categories');
     }
 
 
 if(isset($_GET['active'])){
-    UpdateTable("categories",'category_status','0','category_id',$_GET['active']);
+    updateTable("categories",'category_status','0','category_id',$_GET['active']);
     SessionMessage('message_danger','category disabled successfully');
     pageLocation("categories");
     exit();
@@ -173,7 +173,7 @@ if(isset($_GET['active'])){
 
 // publish post updated to draft post
 if(isset($_GET['disable'])){
-    UpdateTable("categories",'category_status','1','category_id',$_GET['disable']);
+    updateTable("categories",'category_status','1','category_id',$_GET['disable']);
     SessionMessage('message_update','category published successfully');
     pageLocation("categories");
 }

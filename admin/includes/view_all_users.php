@@ -72,7 +72,7 @@
 <?php
 if(isset($_GET['delete_user'])){
    //$cat_delete_id = $_GET['delete_cat'];
-        DeleteRow('authors','author_id',$_GET['delete_user']);
+        deleteRow('authors','author_id',$_GET['delete_user']);
         SessionMessage('message_danger','Author deleted successfully');
         pageLocationSpecial('users.php?source=view_all_users');
 
@@ -80,7 +80,7 @@ if(isset($_GET['delete_user'])){
 
 
 if(isset($_GET['active'])){
-    UpdateTable("authors",'author_status','0','author_id',$_GET['active']);
+    updateTable("authors",'author_status','0','author_id',$_GET['active']);
     SessionMessage('message_danger','Author disabled successfully');
     pageLocationSpecial('users.php?source=view_all_users');
     exit();
@@ -88,7 +88,7 @@ if(isset($_GET['active'])){
 
 // publish post updated to draft post
 if(isset($_GET['disable'])){
-    UpdateTable("authors",'author_status','1','author_id',$_GET['disable']);
+    updateTable("authors",'author_status','1','author_id',$_GET['disable']);
     SessionMessage('message_update','Author active successfully');
     pageLocationSpecial('users.php?source=view_all_users');
     exit();

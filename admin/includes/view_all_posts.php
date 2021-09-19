@@ -6,17 +6,17 @@
          $bulk_options = $_POST['bulk_options'];
         switch($bulk_options){
             case 'published':
-                UpdateTable('posts','post_status','published','post_id',$postValueId);  
+                updateTable('posts','post_status','published','post_id',$postValueId);  
                 SessionMessage('message_success','post published successfully');
                 break;
                 
                 case 'draft':
-                UpdateTable('posts','post_status','draft','post_id',$postValueId);
+                updateTable('posts','post_status','draft','post_id',$postValueId);
                 SessionMessage('message_danger','post draft successfully');
                 break;
                 
                 case 'delete':
-                DeleteRow("posts",'post_id',$postValueId); 
+                deleteRow("posts",'post_id',$postValueId); 
                 SessionMessage('message_danger','post delete successfully');
                 break;
         }
@@ -198,21 +198,21 @@
 
 <?php 
 if(isset($_GET['delete'])){
-    DeleteRow('posts','post_id',$_GET['delete']);
+    deleteRow('posts','post_id',$_GET['delete']);
     SessionMessage('message_danger','post deleted successfully');
     PageLocation("view_posts");
     exit();
 }
 // draft update to publish
 if(isset($_GET['draft'])){
-    UpdateTable("posts",'post_status','published','post_id',$_GET['draft']);
+    updateTable("posts",'post_status','published','post_id',$_GET['draft']);
     SessionMessage('message_success','post published successfully');
     pageLocation("view_posts");
 }
 
 // publish post updated to draft post
 if(isset($_GET['published'])){
-    UpdateTable("posts",'post_status','draft','post_id',$_GET['published']);
+    updateTable("posts",'post_status','draft','post_id',$_GET['published']);
     SessionMessage('message_danger','post draft successfully');
     pageLocation("view_posts");
 } 
