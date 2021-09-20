@@ -54,21 +54,10 @@
             </div>
             </div> 
         
-       <?php /*echo $user_image;*/?>
-       <!-- <div class="col-md-6">
-            <div class="form-group">
-            <label >change image</label>
-            <input type="file" class="form-group" name="add_image"  style="margin-top:5px;" >
-            </div>
-        </div> -->      
-      
-
-	
 	  <?php }} ?>
-	 <?php
+
+<?php
 		  		if(isset($_POST['update_user'])){
-					        
-				        
 						$user_firstname  = $_POST['author_fname'];
 					    $user_lastname   = $_POST['author_lname'];
 						/*$user_email      = $_POST['author_email'];*/
@@ -78,24 +67,12 @@
                        }else{
                            $query  =$connect->query("UPDATE authors SET  author_fname ='{$user_firstname}',author_lname='{$user_lastname}' WHERE author_id='{$_SESSION['author_id']}'");
                        }
-                        
-                        /*$user_password   = $_POST['user_password'];*/
-                       
-                    /*===============   ==============
-                    unlink("../profiles/mmdoh.jpg");
-                    ============================================
-                    */
                           $query->execute();
                           SessionMessage('update_data','Data update successfully');
                           pageLocation("index");
 							
-					
-						   /**/
-							
-						}
-				
+						}	
 		  ?>
-	
    <div class="col-md-12">
 	<div class="form-group">
       <input type="submit" class="btn btn-success pull-right" name="update_user" value="update user" >
