@@ -22,14 +22,9 @@ include("includes/navbar.php");
 						 include("includes/view_all_sliders.php");
 						 break;
 				 }
-		
-		   ?>
-		
-							
-                        </div>
-                    </div>
-		
-		
+		   ?>				
+            </div>
+       </div>
 	</div>
 </div>
 
