@@ -1,7 +1,6 @@
 <?php 
 include("includes/config.file.php");
 ?>
-
 <div id="page-wrapper">
     <div class="container-fluid">
      <?php   
@@ -9,50 +8,22 @@ include("includes/config.file.php");
         SessionDisplay('danger','message_delete');
         SessionDisplay('danger','message_danger');
         ?>
-       <?php /*$array_fields=array('author_id','category_id','post_title','post_content','post_tags','post_image','post_status');
-            $columns = "`".implode('`,', array_values($array_fields))."`";
-            $post_category_id=1;
-            $post_title ="Hello";
-            $post_tags  ="admin";
-            $post_image ="renrkt";
-            $post_status ="publish";
-           $post_content ="abdo";
-           echo $query1 = '"'."INSERT INTO posts ('author_id','category_id','post_title','post_content','post_tags')Values('{$_SESSION['author_id']}','{$post_category_id}','{$post_title}','{$post_content}','{$post_tags}')".'"';
-           echo '<br/>';
-            echo $query ="INSERT INTO($columns)Values('{$_SESSION['author_id']}','{$post_category_id}','{$post_title}','{$post_tags}','{$post_image}','{$post_status}','{$post_content}')";*/ 
-        
-        $tableName ="categories";
-        $status ="category_status";
-        $limit ='2';
-        /*$resultSelect = $connect->query("Select *From categories Where category_status= '1' limit 3");
-        $getresult  = $resultSelect->fetchAll();
-        foreach($getresult as $row):
-            echo $row['category_name'];
-        endforeach;*/
-        
-        
-        ?>
-		 <div class="col-lg-6">  <!-- start of col-log-6 first -->
+        <div class="col-lg-6">  <!-- start of col-log-6 first -->
 			 <?php	
              if(isset($_POST['submit'])){
               $cat_title = $_POST['cat_title'];
               if($cat_title=="" ||strlen($cat_title)<3){
                 echo "<div class='alert alert-danger'>you should not be empty and the least character must be 2</div>";
-            }/*if(){
-                  echo "<div class='alert alert-danger'>the least character must be 3</div>";
-              }*/
-            else{
+            }else{
              $run_cat = InsertData('categories','category_name',$cat_title);
              if($run_cat){
                SessionMessage('message_update','category added successfully');
                 PageLocation("categories");
                 }
             }
-             }
-			/*========================== insert function =========================================*/
-			 	//insert_categories();
-            ?>
- <?php if($_SESSION['author_role']=="admin"){?>
+          }
+		
+ if($_SESSION['author_role']=="admin"){?>
 	   <h1 class="page-header">	
 		   insert new category by
 		    <small>Admin</small>
@@ -78,14 +49,11 @@ include("includes/config.file.php");
 		    $cat_id = $_GET['edit_cat'];
 			include ("includes/update_category.php");
 		}
-	
 		?>
-		
 	</div>
 				
 <!--=============================== end of category form ===========================================-->	 
 			 
-
 	</div> <!--=========================== end of col-log-6 first ===================================-->
 		
 		
@@ -94,18 +62,6 @@ include("includes/config.file.php");
 
 		<h2>categories</h2>
             <hr/>
-            <?php 
-  
-            $data = array(
-                     'fname'=>'joe',
-                     'lname'=>'sina'
-            );
-          
-             /*$columns = "`".implode('`,', array_keys($data))."`";
-            $values = "'".implode("',", array_values($data))."'";*/
-           // echo "INSERT INTO tblname($columns)";
-            /*echo "INSERT INTO tblname($columns) values($values)";*/
-            ?>
                         <div class="table-responsive" >
                             <table class="table table-bordered table-hover">
                                 <thead>
@@ -117,7 +73,6 @@ include("includes/config.file.php");
                                 <tbody>	
                                 <tr>
                                  <?php
-                                    //selectTable -->table name
                                     $cat_info = selectTable('categories');
                                     foreach($cat_info as $cat):
                                  ?>
