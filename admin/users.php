@@ -24,14 +24,10 @@ include('includes/config.file.php');
 						 include("includes/view_all_users.php");
 						 break;
 				 }
-		
 		   ?>
-		
-							
-                        </div>
-                    </div>
-		
-		
+			
+                </div>
+            </div>
 	</div>
 </div>
 
