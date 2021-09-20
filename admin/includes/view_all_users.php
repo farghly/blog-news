@@ -1,4 +1,3 @@
-
 <div id="page-wrapper">
     <div class="container-fluid">
     <?php if($_SESSION['author_role']=="admin"){?>
@@ -22,21 +21,18 @@
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
-                                </thead>
-                                
-                                 
+                                </thead>                         
                                 <tbody>
                                    <?php
-                                   // $i = 1;
                                     $author_info = selectTable('authors');
                                     foreach($author_info as $row):
                                 ?>
                                     <tr>
                                         <td><?php counter(); ?></td>
-                                        <td><?php echo $row['author_fname']; ?></td>
-                                        <td><?php echo $row['author_lname']; ?></td>
-                                        <td><?php echo $row['author_email']; ?></td>
-                                        <td><a href="users.php?source=view_profile&view_profile=<?php echo $row['author_id'];?>" class='btn btn-success'><i class='fa fa-desktop fa-2'></i> view profile</a></td>
+                                        <td><?= $row['author_fname']; ?></td>
+                                        <td><?= $row['author_lname']; ?></td>
+                                        <td><?= $row['author_email']; ?></td>
+                                        <td><a href="users.php?source=view_profile&view_profile=<?= $row['author_id'];?>" class='btn btn-success'><i class='fa fa-desktop fa-2'></i> view profile</a></td>
                                         
                                        <?php
                                        $author_status = $row['author_status'];
@@ -71,26 +67,22 @@
 </div>
 <?php
 if(isset($_GET['delete_user'])){
-   //$cat_delete_id = $_GET['delete_cat'];
         deleteRow('authors','author_id',$_GET['delete_user']);
         SessionMessage('message_danger','Author deleted successfully');
         pageLocationSpecial('users.php?source=view_all_users');
-
 }
 
-
+// diable user
 if(isset($_GET['active'])){
     updateTable("authors",'author_status','0','author_id',$_GET['active']);
     SessionMessage('message_danger','Author disabled successfully');
     pageLocationSpecial('users.php?source=view_all_users');
-    exit();
 }
 
-// publish post updated to draft post
+// enable user 
 if(isset($_GET['disable'])){
     updateTable("authors",'author_status','1','author_id',$_GET['disable']);
     SessionMessage('message_update','Author active successfully');
     pageLocationSpecial('users.php?source=view_all_users');
-    exit();
 }
 ?>
