@@ -1,5 +1,3 @@
-<?php include 'db.php'; 
-?>
 <div class="modal fade" id="delete_post_modal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -8,7 +6,6 @@
                  <span aria-hidden="true">&times;</span><span class="sr-only">
                     close
                     </span>
-                 
                  </button>
                 <h4 class="modal-title" id="myModalLabel"><i class="fa fa-envelope"></i>
                 Delete post
@@ -21,12 +18,6 @@
                 <a href="" class="btn btn-danger modal_delete_link">Delete</a>
                 <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
                 </div>
-            
             </div>
-        
         </div>
-    
     </div>
-
-
-
