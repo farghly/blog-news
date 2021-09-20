@@ -11,8 +11,7 @@
                 <input type="text" class="form-control" name="post_title" value="<?= $post_info['post_title']; ?>" >
             </div>
         </div>
-        
-    
+
     <div class="col-md-6">
         <div class="form-group">
            <label for="categories">categories</label>
@@ -40,12 +39,9 @@
 				?>
 		</select>
 	</div>
- </div> 
-       
+ </div>  
 </div>
-   
 	<div class="form-group">
-      
        <input type="file" class="form-group" name="add_image"  style="margin-top:20px;" >
         <?php 
         $post_img = $post_info['post_image'];
@@ -66,39 +62,30 @@
 	</div>
 	
 <?php } ?>
-	
-    
-	 
 	<div class="form-group">
 		<input type="submit" class="btn btn-primary" name="update_post" value="update post" >
 	</div>
-
 </form>
 
-
-<?php
-           
-                      if(isset($_POST['update_post'])){
-					       $post_title        = $_POST['post_title'];
-				            $post_category     = $_POST['post_cat_id'];
-							$post_image        = $_FILES['add_image']['name'];
-							$post_image_temp   = $_FILES['add_image']['tmp_name'];
-							$post_content      = $_POST['post_content'];
-							$post_tags         = $_POST['post_tags'];
-							$post_date         = date('d-m-y');
-							$post_status       = $_POST['post_status'];
-   	                         move_uploaded_file($post_image_temp,"img/products/$post_image");
-						    if(empty($post_image)){
-                            $post_image = $post_info['post_image'];
-                            }
-                          
-							 $query_update  =$connect->query("UPDATE posts SET post_title='{$post_title}',author_id='{$_SESSION['author_id']}',category_id ='{$post_category}',post_tags='{$post_tags}' ,post_content='{$post_content}',post_status='{$post_status}',post_image='{$post_image}' WHERE post_id='{$the_post_id}'");
-                            $run_query = $query_update->execute();
-                            if($run_query){
-                            SessionMessage('message_success','post updated successfully');
-                            PageLocation('view_posts');
-                            }
-					
-						  
-						}		
-	 ?>
+<?php           
+    if(isset($_POST['update_post'])){
+	    $post_title        = $_POST['post_title'];
+	    $post_category     = $_POST['post_cat_id'];
+		$post_image        = $_FILES['add_image']['name'];
+		$post_image_temp   = $_FILES['add_image']['tmp_name'];
+		$post_content      = $_POST['post_content'];
+		$post_tags         = $_POST['post_tags'];
+		$post_date         = date('d-m-y');
+		$post_status       = $_POST['post_status'];
+   	    move_uploaded_file($post_image_temp,"img/products/$post_image");
+	    if(empty($post_image)){
+          $post_image = $post_info['post_image'];
+          }
+		 $query_update  =$connect->query("UPDATE posts SET post_title='{$post_title}',author_id='{$_SESSION['author_id']}',category_id ='{$post_category}',post_tags='{$post_tags}' ,post_content='{$post_content}',post_status='{$post_status}',post_image='{$post_image}' WHERE post_id='{$the_post_id}'");
+          $run_query = $query_update->execute();
+          if($run_query){
+          SessionMessage('message_success','post updated successfully');
+          PageLocation('view_posts');
+          }	  
+	}		
+?>
