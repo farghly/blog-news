@@ -1,6 +1,4 @@
-<?php 
-//include("functions.php") ;?>
-    <?php
+<?php
     if(isset($_POST['checkBoxArray'])){
         foreach($_POST['checkBoxArray'] as $postValueId){
          $bulk_options = $_POST['bulk_options'];
@@ -23,26 +21,19 @@
         }
         
     }
-    ?>
-    
-<?php SessionDisplay('success','message_success');
-      SessionDisplay('danger','message_danger');
-?> 
-    <?php 
-           $posts_count = rowCount('posts');
-            if($posts_count > 0){
-                ?>
-	<!--<div class="btn btn-success success"><h3>Posts</h3></div>-->
-    
 
-                             
+SessionDisplay('success','message_success');
+SessionDisplay('danger','message_danger');
+
+$posts_count = rowCount('posts');
+if($posts_count > 0){
+?>               
 <div class="table-responsive">
     <form action="" method="post">  
 	  <table class="table table-bordered table-hover">
           <div id="bulkOptionContainer" class="col-md-3">
         <div class="row">
         <div class="col-md-4">
-              
          </div>
         </div>
               
@@ -54,7 +45,6 @@
                 <?php if($_SESSION['author_role']=="admin"):?>
                 <option value="delete">Delete</option>
                 <?php endif;?>
-                <!--<option value="copy">copy</option>-->
            </select>
           </div>
           <div class="col-xs-4 block">
@@ -68,15 +58,10 @@
                                         <th><input type="checkbox" id="selectAllBoxes"></th>
                                         <th>Id</th>
 										<th>post title</th>
-                                        
                                         <!--<th>post tags</th>-->
                                         <th> post category </th>
                                         <th>image</th>
                                         <th> post status </th>
-                                        
-										<!--<th>tags</th>
-<i class="fa fa-calendar-o"></i>  __ <i class="fa fa-comments"></i>
-                        -->
 										<th></th>
 										<?php if($_SESSION['author_role']=="admin"):?>
 										<th></th>
@@ -86,10 +71,9 @@
                                 </thead>
                                 <tbody>
                                   <?php 
-                                   //echo "Hello from here";
                                     $get_info = joinTable('posts','categories','category_id','post_id');
                                     foreach($get_info as $row):?>
-                                    
+
                                     <tr>
                                        <td><input class="checkBoxes" type="checkbox" name="checkBoxArray[]" value="<?php echo $row['post_id']; ?>"></td>
                                         <td><?php counter(); ?></td>
@@ -101,10 +85,7 @@
                                         <!--<td><?= $row['post_tags']; ?></td>-->
                                         <td><?= $row['category_name']; ?></td>
                                         <td><img src="img/products/<?= $row['post_image'];?>" alt="No image" height="50" width="50"/></td>
-                                      
-                                        
-									
-                                 
+ 
                                     <?php
                                     $post_status = $row['post_status'];
 									 if($post_status=="published"){
@@ -115,8 +96,6 @@
                                         '','lock',$row['post_status']);
                                      }
                                        ?>
-                                     
-									
                                    
                                     <?php
 									edit_delete_link('view_posts.php?source=edit_post&p_id',$row['post_id'],
@@ -135,73 +114,17 @@
                     echo "<h1 class='lead comments'><i class='fa fa-files-o fa-2x'></i> No posts <span class='btn btn-success' ><a href='view_posts.php?source=add_post'>Add new</a></span><h1>";
                      
                     }?>
-                            </table>
+             </table>
         </form> 
-    <div class="pager">
-        <ul>
-           
-        </ul>
-    </div>
- <?php
-    $per_page = 2;
-        if(isset($_GET['page'])){
-                 $page = $_GET['page'];   
-                }else{
-                    $page ='';
-                    
-                }
-                if($page == "" || $page == 1){
-                    $page_1 = 0;
-                }else{
-                    $page_1 = ($page*2)-$per_page;
-                }
-                 $count   = ceil($posts_count/$per_page); 
-    ?>
-      <div class="page-nation pull-right">
-                                        <ul class="pagination pagination-large">
-                                        <!--<li class="disabled"><span>«</span></li>
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">6</a></li>
-                                        <li class="disabled"><span>...</span></li><li>
-                                        <li><a href="#">20</a></li>
-                                        <li><a href="#">21</a></li>
-                                        <li><a href="#">22</a></li>
-                                        <li><a rel="next" href="#">Next</a></li>-->
-                <?php
-                /*for($i=1;$i<=3;$i++){
-                  if($i == $page){
-                  echo "<li><a class='active' href='view_posts.php?page={$i}' >$i</a></li>";
-                  }else
-                  {
-                   echo "<li><a href='view_posts.php?page={$i}'>$i</a></li>";
-                  }
-              }
-                if($i >3){
-                   echo "<li class='disabled'><span>...</span></li><li>";
-                }
-                  for($i=$count - 2;$i<=$count;$i++){
-                 if($i == $page){
-                   echo "<li><a class='active_link' href='index.php?page={$i}' >$i</a></li>";
-                  }else{
-                   echo "<li><a href='index.php?page={$i}' >$i</a></li>";
-                  }
-              }  */?>
-                                     </ul>
-                            </div>
-      						
-      </div>
-
-
+                   
+    </div>      						
+ </div>
 
 <?php 
 if(isset($_GET['delete'])){
     deleteRow('posts','post_id',$_GET['delete']);
     SessionMessage('message_danger','post deleted successfully');
     PageLocation("view_posts");
-    exit();
 }
 // draft update to publish
 if(isset($_GET['draft'])){
