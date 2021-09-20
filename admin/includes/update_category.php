@@ -6,7 +6,7 @@
                 $cat_info   = selectTableCondition('categories','category_id',$cat_id);
                 ?>   
 	    <div class="input-group">
-		  <input value="<?php echo $cat_info['category_name']; ?>" type="text" class="form-control edit" name="cat_update">			  
+		  <input value="<?= $cat_info['category_name']; ?>" type="text" class="form-control edit" name="cat_update">			  
 <?php } ?>
 		  <?php
                 /*
