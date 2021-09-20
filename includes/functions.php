@@ -59,7 +59,8 @@ AND //add any additional filters HERE
 */
 
 function joinTable($tbl_1,$tbl_2,$cat_id,$post_id){
-    $resultSelect  =  queryStat("SELECT ".$tbl_1.'.* ,'.$tbl_2.'.*'." FROM ".$tbl_1." INNER JOIN ".$tbl_2." ON ".$tbl_1.'.'.$cat_id."=".$tbl_2.'.'.$cat_id);
+    $resultSelect  =  queryStat("SELECT ".$tbl_1.'.* ,'.$tbl_2.'.*'." FROM ".$tbl_1.
+                                " INNER JOIN ".$tbl_2." ON ".$tbl_1.'.'.$cat_id."=".$tbl_2.'.'.$cat_id);
     return $resultSelect->fetchAll();
 }
 
