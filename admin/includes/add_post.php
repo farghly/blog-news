@@ -1,6 +1,5 @@
 <?php 
- if(isset($_POST['add_post'])){
-     
+ if(isset($_POST['add_post'])){  
             $post_title           = $_POST['post_title'];
             $post_category_id  = $_POST['post_cat_id'];
             //$product_date         =date('d-m-y');
@@ -10,25 +9,20 @@
             $post_status       = $_POST['post_status'];
             $post_content      =$_POST['post_content'];
      
-     
    move_uploaded_file($post_image_temp,"img/products/$post_image");
     $array_fields=array('author_id','category_id','post_title','post_content','post_tags','post_image','post_status');
     $columns = "`".implode('`,', array_values($array_fields))."`";
-     // ,'post_image','post_status'
-     //,'{$post_image}','{$post_status}'
+   
 	$query_exec = $connect ->prepare("INSERT INTO posts (author_id,category_id,post_title,post_content,post_tags,post_image,post_status)Values('{$_SESSION['author_id']}','{$post_category_id}','{$post_title}','{$post_content}','{$post_tags}','{$post_image}','{$post_status}')");
      $InsertData =$query_exec->execute();
 	if($InsertData){
         SessionMessage('message_success','post created sucussfully');
 		PageLocation("view_posts");
-        exit();
 	}
-	
 }
 ?>
 <form action="" method="post" enctype="multipart/form-data" id="edit-form">
 	
-    
     <div class="row">
      <div class="col-md-12">
             <div class="form-group">
@@ -37,9 +31,6 @@
          </div>
     </div>
        
-        
-       
-        
         <div class="col-md-6">
 	      <div class="form-group">
           <label for="categories">categories</label>
@@ -76,7 +67,6 @@
 		<label for="post_tag">post tags</label>
 		<input type="text" class="form-control" name="post_tags" data-role="tagsinput" id="tag">
 	</div>
-	
 	<div class="form-group">
 		<label for="title">post content</label>
 		<textarea class="form-control" name="post_content" id="content-box"  cols="30" rows="10"></textarea>
@@ -85,6 +75,3 @@
 		<input type="submit" class="btn btn-primary" name="add_post" value="add post" />
 	</div>
 </form>
-
-
-
