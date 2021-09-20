@@ -1,6 +1,5 @@
-<?php session_start(); ?>
 <?php
-
+session_start(); 
 session_destroy();
 /*$_SESSION['username']  = null;
 $_SESSION['firstname'] = null;

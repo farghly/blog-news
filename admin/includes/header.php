@@ -64,7 +64,7 @@ if(isset($_GET['p_id'])|| $link == $url) :?>
   <script>tinymce.init({selector:'textarea',plugins: 'table'});</script>
   <link rel="stylesheet" href="css/bootstrap-tagsinput.css" type="text/css">
  
- 
+
 <?php endif; ?>
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
