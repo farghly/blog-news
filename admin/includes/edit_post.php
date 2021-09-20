@@ -1,6 +1,6 @@
 <?php 
-	if(isset($_GET['p_id'])){
-		 $the_post_id = $_GET['p_id'];
+	if(isset($_GET['post_id'])){
+		 $the_post_id = $_GET['post_id'];
          $post_info = selectTableCondition('posts','post_id',$the_post_id);
 	     ?>
 <form action="" method="post" enctype="multipart/form-data" id="edit-form">

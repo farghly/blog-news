@@ -46,7 +46,7 @@ if($_SESSION['author_role']=="admin" && ($urldashborad==$link || $urldashboradin
 <?php endif; 
 
 $url = $_SERVER['HTTP_HOST']."/admin/view_posts.php?source=add_post";
-if(isset($_GET['p_id'])|| $link == $url) :?> 
+if(isset($_GET['post_id'])|| $link == $url) :?> 
     <script src="https://cdn.tiny.cloud/1/ob2z96bqz0k2wmu95zjfl2n4n4pzmmmlsl2zovinrp97sr56/tinymce/5/tinymce.min.js" 
      referrerpolicy="origin"></script>
   <script>tinymce.init({selector:'textarea',plugins: 'table'});</script>

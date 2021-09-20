@@ -98,7 +98,7 @@ if($posts_count > 0){
                                        ?>
                                    
                                     <?php
-									edit_delete_link('view_posts.php?source=edit_post&p_id',$row['post_id'],
+									edit_delete_link('view_posts.php?source=edit_post&post_id',$row['post_id'],
                                     'warning','','pencil-square-o','Edit');
                                     ?>
 									
