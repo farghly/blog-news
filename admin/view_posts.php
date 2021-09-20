@@ -1,8 +1,5 @@
 <?php 
-include("includes/header.php");
-include ('../includes/config.php');
-include("../includes/functions.php");
-include("includes/navbar.php");
+ include("includes/config.file.php")
 ?>
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -24,20 +21,8 @@ include("includes/navbar.php");
 						 include("includes/view_all_posts.php");
 						 break;
 				 }
-		
-		   ?>
-		
-						<?php
-					
-						//	include("includes/view_all_posts.php");
-							
-						?>		
-                        </div>
-                    </div>
-		
-		
+  ?>		
 
-
-
-
+        </div>
+    </div>
 <?php include("includes/footer.php")?>
