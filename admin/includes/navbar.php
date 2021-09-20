@@ -1,4 +1,3 @@
-
 <div id='wrapper'>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -73,11 +72,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $author_info['author_fname'].' '.$author_info['author_lname']; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="users.php?source=view_profile&view_profile=<?php echo $_SESSION['author_id'];?>"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="users.php?source=view_profile&view_profile=<?= $_SESSION['author_id'];?>"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
                         <li>
-                        <a href="users.php?source=edit_profile&edit_profile=<?php echo $_SESSION['author_id'];?>"><i class="fa fa-fw fa-user"></i>Edit profile</a>
-                            </li>
+                        <a href="users.php?source=edit_profile&edit_profile=<?= $_SESSION['author_id'];?>"><i class="fa fa-fw fa-user"></i>Edit profile</a>
                         <li>
                             <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
                         </li>
@@ -92,25 +90,18 @@
                 </li>
             </ul>
 	
-	
-	
-	
-	
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse" >
                 <ul class="nav navbar-nav side-nav">
 					<div class="media">
 					<a class="pull-left" href="#">
-                      <?php /*$getinfo =          selectTableCondition('authors','author_id',$_SESSION['author_id']);*/
+                      <?php 
                       $author_image =$author_info['author_image'];
-                      
-                      ?>
-                    <?php if($author_image==""){?>
+                     if($author_image==""){?>
                     <img class="media-object img-circle" src="img/mmdoh1.jpg" width="76" height="76" style="margin-left:auto; margin-right:auto; display:block">
-                    <?php }else{
-        
+                    <?php }else{ 
                     ?>
-					<img class="media-object img-circle" src="img/profile/<?php echo $author_image;?>" width="76" height="76" style="margin-left:auto; margin-right:auto; display:block">	
+					<img class="media-object img-circle" src="img/profile/<?= $author_image;?>" width="76" height="76" style="margin-left:auto; margin-right:auto; display:block">	
 				<?php } ?>
 					</a>
 					<div class="media-body" style="color:white">
@@ -118,23 +109,15 @@
 					welcomeback
 					</div>
 					<h4 class="media-heading" style="margin-top:5px;">
-					<?php echo $author_info['author_fname'];?>
+					<?= $author_info['author_fname'];?>
 					</h4>
-				
                         <a data-toggle="modal" href="#change_photo" class="btn btn-success" ><span class="fa fa-photo" style="font-size:9px;"></span> changePhoto</a>
-                        <!--<div class="btn btn-success"><span class="fa fa-photo" style="font-size:14px;"> change photo</span></div>-->
-                        <!--<div class="btn btn-success">Edit</div>-->
-<!--					<a class="md-trigger" href="../admin/includes/logout.php"><div class="btn btn-danger"><i class="fa fa-fw fa-power-off"></i></div></a>-->
 					</div>
 					
 					</div>
                     <li >
-						
                         <a href="index.php"><i class="fa fa-home fa-2x"></i> Dashboard</a>
                     </li>
-
-                    
-                            
 					<li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#drop"><i class="fa fa-files-o fa-fw"></i><strong> Posts </strong><i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="drop" class="collapse">
@@ -146,8 +129,7 @@
                             </li>
                         </ul>
                     </li>  
-					
-                    
+
                     <!--========== categories =====================-->
                     <?php if($_SESSION['author_role']=="admin"):?>
 					<li>
@@ -221,9 +203,7 @@
                 </div>
             </form>
             </div>
-        
-        </div>
-    
+        </div>    
     </div>
     <!-- end of modal -->
 
@@ -233,24 +213,15 @@
     }
     $user_id = $_SESSION['author_id']; 
     if(isset($_POST['update_profile'])){
-    $user_image      = date('d-m-Y H').$_FILES['add_image']['name'];
-    $user_image_temp = $_FILES['add_image']['tmp_name'];
-    move_uploaded_file($user_image_temp,"img/profile/$user_image");
-       /*if(empty($user_image)){
-           SessionMessage('profile_error','you don\'t any image to update profile');
-           PageLocation('index');
-           exit();
-        }*/
-        
-        $profile_update = updateTable('authors','author_image',$user_image,'author_id',$user_id);
-        if($profile_update){
-        unlink($_SESSION['delete_image']);
-        unset($_SESSION['delete_image']);
-        SessionMessage('update_data','your profile updated succfully');
-        pageLocation('index');
-        exit(); 
-        }
-       
-    }
-				
-		  ?>
+      $user_image      = date('d-m-Y H').$_FILES['add_image']['name'];
+      $user_image_temp = $_FILES['add_image']['tmp_name'];
+      move_uploaded_file($user_image_temp,"img/profile/$user_image");
+      $profile_update = updateTable('authors','author_image',$user_image,'author_id',$user_id);
+    if($profile_update){
+       unlink($_SESSION['delete_image']);
+       unset($_SESSION['delete_image']);
+       SessionMessage('update_data','your profile updated succfully');
+       pageLocation('index');
+  }
+}
+?>
