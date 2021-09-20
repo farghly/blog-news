@@ -1,5 +1,6 @@
 <?php
 include("config.php"); 
+include("functions.php"); 
 session_start(); 
 
 if(isset($_POST['login'])){
@@ -19,16 +20,16 @@ if(isset($_POST['login'])){
      $db_role       = $getresult['author_role'];
     if($user_email === $db_email && $password ===$db_pass && $author_status=='1'&&($db_role === "admin" || $db_role === "author")){
         $_SESSION['author_id']        =  $author_id  ;
-        $_SESSION['author_email']    = $db_email;
-        $_SESSION['author_password'] = $db_pass;
-        $_SESSION['author_role']     = $db_role;
-        $_SESSION['message_success']="Welcome to ".$_SESSION['author_role'];
-        header("Location:../admin/");
+        $_SESSION['author_email']     = $db_email;
+        $_SESSION['author_password']  = $db_pass;
+        $_SESSION['author_role']      = $db_role;
+        $_SESSION['message_success']  ="Welcome to ".$_SESSION['author_role'];
+        pageLocationSpecial("../admin/");
     }elseif($user_email === $db_email && $password ===$db_pass && $author_status=='0'){
         $_SESSION['active_account']="You must active account by admin";
-        header("location:../login.php");
+        pageLocation("../login");
     }else{
        $_SESSION['error_login']="Error in email or password";
-        header("location:../login.php"); 
+       pageLocation("../login"); 
     }     
 }
