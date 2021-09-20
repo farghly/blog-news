@@ -7,7 +7,6 @@ include('includes/config.file.php');
         SessionDisplay('success','comment_approve');
         SessionDisplay('danger','comment_unapprove');
         SessionDisplay('danger','comment_delete');
-        
         ?>
 			<div class="col-lg-12">
                 <?php 
@@ -21,7 +20,6 @@ include('includes/config.file.php');
                                     <tr>
                                         <th width="10px">Id</th>
                                         <th >comment author</th>
-                                       <!-- <th>Author</th>-->
                                         <th>Email</th>
                                         <th>content</th>
 										<th width="20px">status</th>
@@ -31,8 +29,6 @@ include('includes/config.file.php');
                                         <?php endif;?>
                                     </tr>
                                 </thead>
-                          
-                                 
                                 <tbody>
                                  <?php
                                     $i = 1;
@@ -40,11 +36,10 @@ include('includes/config.file.php');
                                     foreach($comment_info as $row):
                                 ?>
                                     <tr>
-                                        <td><?php echo $i++; ?></td>
-                                        <td><?php echo $row['comment_author'] ?></td>
-                                        
-                                        <td><?php echo $row['comment_email']; ?></td>
-                                        <td><?php echo $row['comment_content']; ?></td>
+                                        <td><?= $i++; ?></td>
+                                        <td><?= $row['comment_author'] ?></td>
+                                        <td><?= $row['comment_email']; ?></td>
+                                        <td><?= $row['comment_content']; ?></td>
                                         
                                         <?php 
                                         $status = $row['comment_status'];
@@ -55,14 +50,13 @@ include('includes/config.file.php');
                                         }
                                      ?>
                                      
-                                        <td><?php echo $row['comment_date'];?></td>
-                                       
+                                        <td><?= $row['comment_date'];?></td>
+                                    
                                         <?php
                                       if($_SESSION['author_role'] =="admin"):
                                         edit_delete_link('comments.php?comment_delete',$row['comment_id'],'danger','','trash-o fa-2','Delete');
                                         endif;?>
-                                        
-										
+                                        	
                                     </tr>
                                    <?php endforeach;?>
                                 </tbody>
@@ -75,30 +69,21 @@ include('includes/config.file.php');
                             </table>
                             
                         </div>
-                    </div>
-        
-    
-           
+                    </div>           
 	</div>
 </div>
-<?php include("includes/footer.php"); ?>
 <?php 
+include("includes/footer.php");
+
 if(isset($_GET['comment_delete'])){
     deleteRow('comment','comment_id',$_GET['comment_delete']);
     SessionMessage('comment_delete','comment deleted successfully');
-    /*$the_comment_id = $_GET['comment_delete'];
-    $query          ="DELETE FROM comments where comment_id=$the_comment_id";
-    $delete_query   = mysqli_query($connect,$query);*/
     PageLocation('comments');
 }
-?>
- <?php 
-if(isset($_GET['unapprove'])){
 
+if(isset($_GET['unapprove'])){
 updateTable('comment','comment_status','0','comment_id',$_GET['unapprove']);
 SessionMessage('comment_unapprove','comment unapproved successfully');
-/*$unapprove_comment ="UPDATE comments SET comment_status='unapproved' WHERE comment_id='$unapprove_id'";
-$run_approve_comment = mysqli_query($connect , $unapprove_comment);*/
 PageLocation('comments');
 }
 if(isset($_GET['approve'])){
