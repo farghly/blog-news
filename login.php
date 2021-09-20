@@ -5,22 +5,13 @@
         <meta charset="utf-8">
         <title>Login page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no">
-
-        <!-- Import google fonts - Heading first/ text second -->
         <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
         <!-- Css files -->
         <!-- Icons -->
         <link href="admin/css/font-awesome.min.css" rel="stylesheet" />
-       <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
-        <!-- Bootstrap stylesheets (included template modifications) -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-      
-        <!-- Plugins stylesheets (all plugin custom css) -->
         <link href="assets/css/plugins.css" rel="stylesheet" />
-        <!-- Main stylesheets (template main css file) -->
         <link href="assets/css/login.css" rel="stylesheet" />
-    
-        
     </head>
 
    <body class="login-page">
@@ -102,9 +93,7 @@ function SessionDisplay($type,$message_name){
        
        <script type="text/javascript" src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.js"></script>
-        <script src="assets/js/script.js"></script>
-        
-        
+        <script src="assets/js/script.js"></script>       
  
     </body>
 </html>
