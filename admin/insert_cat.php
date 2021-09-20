@@ -1,4 +1,3 @@
-
 <div id="page-wrapper">
     <div class="container-fluid">
 	  <div class="col-lg-6">
@@ -14,11 +13,11 @@
 			 <input type="submit" name="insert_cat" value="Add cate" class="btn btn-success"/>
 			</div>
         </form>	  
-		  
 	 </div>
-		<div class="col-lg-6">
-				   <?php
+  </div>
+</div>
 
+<?php
      if(isset($_POST['insert_cat'])){
 	 $cat_title = $_POST['new_cat'];
 	 if( $cat_title == ' '||empty($cat_title)){
@@ -29,13 +28,6 @@
     $insert_cat = insertcat('categories','category_name',$cat_title);
 	echo "<div class='alert alert-success'><h3>your data insert successfully</h3></div>";
 	}
-	}
-
- 
-?>
-		</div>
-
-  </div>
-</div>
-
-<?php include("includes/footer.php")?>
+} 
+ include("includes/footer.php");
+ ?>
