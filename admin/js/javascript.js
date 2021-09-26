@@ -1,22 +1,13 @@
 var lastChecked = null;
 $(document).ready(function(){
-	/*
-	$('.alert.alert-success , .alert.alert-danger').delay(2000).fadeOut(2000);*/
-
+    $('.alert-success,.alert-danger').delay(2000).fadeOut(2000);
+    // load screen
 	var div_box ="<div id=load-screen><div id='loading'></div></div>";
 	$("body").prepend(div_box);
-	$('#load-screen').delay(500).fadeOut(600,function(){
+	$('#load-screen').delay(300).fadeOut(400,function(){
 		$(this).remove();
 	})
     
-	/*
-    $('.open-modal').click(function () {
-        $('#DemoModal').modal('show');
-    });*/
-    /*==============   view profile script  ====================*/
-   
-   
-    /*================== end of view profile script  ==================================*/
     /*====== script of delete post ======== */
     $('.delete_link').on('click',function(){
        var id = $(this).attr('rel');
@@ -50,6 +41,7 @@ $(document).ready(function(){
             });
     /*========== end of script  shift+click to select checkbox*/
 });
+
 $("input").keypress(function(event) {
     if (event.which == 13) {
         event.preventDefault();
@@ -57,26 +49,3 @@ $("input").keypress(function(event) {
         //$("form").submit();
     }
 });
-
-$(document).ready(function(){
-    $('.alert-success,.alert-danger').delay(2000).fadeOut(2000);
-    
-    //$("input").val();
-    
-});
-/*======= ctrl + s to save ====================*/
-/*(function($) {
-	window.addEvent('domready',function() {
-		$('content-box').addEvent('keydown',function(event) {
-			if((event.control || event.meta) && event.key == 's') {
-				event.stop();
-				$('edit-form').submit();
-			}
-		});
-	});
-})(document.id);*/
-  /*==============================*/
- 
-    /*=========== counter function ===================*/
- 
-
