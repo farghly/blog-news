@@ -16,15 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700&subset=latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
-    <!-- Vender -->
-    <?php
     
-   /* $css_files = array('font-awesome.min.css','bootstrap.min.css','normalize.min.css'
-                      ,'owl.carousel.min.css','main.css');
-    foreach($css_files as $css){*/?>
-      <!--<link rel="stylesheet" href="\<?php /*echo CSS_PATH.$css*/?>" type="text/css" media="all"/>-->
-      <?php /*}*/?>
-      
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/normalize.min.css" rel="stylesheet" />

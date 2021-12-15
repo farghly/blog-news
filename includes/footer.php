@@ -16,7 +16,7 @@
                         <ul class="list-category">
                             <?php
                              foreach($get_info as $row):?>
-                            <li><a href="business.html"><?php echo $row['category_name'];?></a></li>
+                            <li><a href="business.html"><?= $row['category_name'];?></a></li>
                           <?php endforeach;?>
                         </ul>
                     </div>
@@ -47,34 +47,6 @@
 
                         <div class="col-sm-6 col-xs-12">
                             <ul class="list-social-icon list-social-icon-footer">
-                            <?php
-                            $social = array(array(
-                                            "facebook"=>"http://facebook.com",
-                                            "youtube"=>"http://youtube.com",
-                                            "twitter"=>"http://twitter.com",
-                                            "google"=>"http://twitter.com",
-                                            "pinterest"=>"http://twitter.com",
-                                            "rss"=>"http://twitter.com",
-                            ),array(
-                                'fa-facebook','fa-twitter','fa-google','fa-youtube-play','fa-pinterest-p','fa fa-rss'
-                            ));
-                            print_r($social);
-                               /*$sociallinks = array(
-                               
-                                            "facebook"=>"http://facebook.com",
-                                            "youtube"=>"http://youtube.com",
-                                            "twitter"=>"http://twitter.com",
-                                            "google"=>"http://twitter.com",
-                                            "pinterest"=>"http://twitter.com",
-                                            "rss"=>"http://twitter.com",
-                                 );
-                                $icons = array('fa-facebook','fa-twitter','fa-google','fa-youtube-play','fa-pinterest-p','fa fa-rss');
-                                foreach($sociallinks as $key=>$value , $icons as $icon):*/?>
-                                
-                               <!-- <a href="<?php /*echo $key;*/ ?>" class="<?php /*echo $value;*/ ?>">
-                                <i class="fa <?php /*echo $icon;*/ ?>"></i>
-                                </a>
-                                <?php /*endforeach;*/?>-->
                             
                             <li>
                                      <a href="#" class="facebook">
