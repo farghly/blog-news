@@ -10,6 +10,6 @@ try{
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $connect->exec('SET NAMES "utf8"');
 }catch(PDOException $e){
-    echo 'Unable to connect'/*.$e->getmessage()*/;
+    echo 'Unable to connect'.$e->getmessage();
 }
 
