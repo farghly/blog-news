@@ -77,7 +77,7 @@ function deleteRow($tableName,$row_id,$post_id){
 
 function InsertData($tableName,$columns,$values){
     $resultSelect = prepareStat('INSERT INTO '.$tableName.' ('.$columns.')'. ' VALUES '.'('."'$values'".')');
-   return $resultSelect->execute();;
+   return $resultSelect->execute();
   
 }
 
@@ -92,8 +92,8 @@ function SessionDisplay($type,$message_name){
    if(isset($_SESSION[$message_name])):?>
     <ul>
        <li><div class="alert alert-<?= $type;?> text-center"><i class="fa fa-power-off"></i>
-    <?php
-    echo $_SESSION[$message_name];
+       
+    <?=$_SESSION[$message_name];
     unset($_SESSION[$message_name]);
     ?>
     
