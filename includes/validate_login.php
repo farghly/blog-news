@@ -1,6 +1,6 @@
 <?php
 include("config.php"); 
-include("functions.php"); 
+include("Locator.php"); 
 session_start(); 
 
 if(isset($_POST['login'])){
@@ -24,12 +24,12 @@ if(isset($_POST['login'])){
         $_SESSION['author_password']  = $db_pass;
         $_SESSION['author_role']      = $db_role;
         $_SESSION['message_success']  ="Welcome to ".$_SESSION['author_role'];
-        pageLocationSpecial("../admin/");
+        Locator::pageLocationSpecial("../admin/");
     }elseif($user_email === $db_email && $password ===$db_pass && $author_status=='0'){
         $_SESSION['active_account']="You must active account by admin";
-        pageLocation("../login");
+        Locator::pageLocationSpecial("../login");
     }else{
        $_SESSION['error_login']="Error in email or password";
-       pageLocation("../login"); 
+       Locator::pageLocationSpecial("../login"); 
     }     
 }
