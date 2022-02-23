@@ -37,19 +37,19 @@
                                        <?php
                                        $author_status = $row['author_status'];
 									 if($author_status=="1"){
-                                       edit_delete_link('users.php?source=view_all_users&active',$row['author_id'],
+                                       toggleApprove('users.php?source=view_all_users&active',$row['author_id'],
                                         'success','','check','active');
                                       }else{
-                                        edit_delete_link('users.php?source=view_all_users&disable',$row['author_id'],'danger',
+                                        toggleApprove('users.php?source=view_all_users&disable',$row['author_id'],'danger',
                                         '','lock','disabled');
                                       }
                                        ?>
                                        
                                        
                                        <?php
-                                       edit_delete_link('users.php?source=edit_profile&edit_profile',$row['author_id'],'warning','','pencil fa-2','Edit');
+                                       toggleApprove('users.php?source=edit_profile&edit_profile',$row['author_id'],'warning','','pencil fa-2','Edit');
                                        
-                                        edit_delete_link('users.php?source=view_all_users&delete_user',$row['author_id'],'danger','','trash-o fa-2','Delete');?>
+                                        toggleApprove('users.php?source=view_all_users&delete_user',$row['author_id'],'danger','','trash-o fa-2','Delete');?>
                                      
                                       
                                     </tr>

@@ -92,7 +92,7 @@ function SessionDisplay($type,$message_name){
    if(isset($_SESSION[$message_name])):?>
     <ul>
        <li><div class="alert alert-<?= $type;?> text-center"><i class="fa fa-power-off"></i>
-       
+
     <?=$_SESSION[$message_name];
     unset($_SESSION[$message_name]);
     ?>
@@ -111,7 +111,7 @@ function counter(){
     echo ++$a;  
 }
 
-function edit_delete_link($url,$id,$class,$name,$font,$txt){?>
+function toggleApprove($url,$id,$class,$name,$font,$txt){?>
     <td><a href="<?= $url.'='.$id;?>"><div class='btn btn-<?= $class;?>' name="<?= $name;?>">
     <i class='fa fa-<?= $font;?>'></i><?= ' '.$txt;?></div></a></td>
 <?php }

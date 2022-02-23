@@ -44,9 +44,9 @@ include('includes/config.file.php');
                                         <?php 
                                         $status = $row['comment_status'];
                                         if($status=="1"){
-                                        edit_delete_link('comments.php?unapprove',$row['comment_id'],'success','','check','approved');
+                                        toggleApprove('comments.php?unapprove',$row['comment_id'],'success','','check','approved');
                                         }else{
-                                        edit_delete_link('comments.php?approve',$row['comment_id'],'danger','','lock','draft');
+                                        toggleApprove('comments.php?approve',$row['comment_id'],'danger','','lock','draft');
                                         }
                                      ?>
                                      
@@ -54,7 +54,7 @@ include('includes/config.file.php');
                                     
                                         <?php
                                       if($_SESSION['author_role'] =="admin"):
-                                        edit_delete_link('comments.php?comment_delete',$row['comment_id'],'danger','','trash-o fa-2','Delete');
+                                        toggleApprove('comments.php?comment_delete',$row['comment_id'],'danger','','trash-o fa-2','Delete');
                                         endif;?>
                                         	
                                     </tr>

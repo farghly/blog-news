@@ -80,7 +80,7 @@ include("includes/config.file.php");
                                     <td><?= $cat['category_name']; ?></td>
                                   <?php  
                                    /*
-                                        * edit_delete_link is a function take six arguments
+                                        * toggleApprove is a function take six arguments
                                         * paramter like categories.php?edit_cat
                                         * id from dataabase
                                         * btn class
@@ -88,16 +88,16 @@ include("includes/config.file.php");
                                         * font awesome
                                         * text of button
                                    */ 
-                                    edit_delete_link('categories.php?edit_cat',$cat['category_id'],'warning','edit_cat','pencil-square-o fa-2','Edit');
-                                    edit_delete_link('categories.php?delete_cat',$cat['category_id'],'danger','delete_cat','trash-o fa-2','Delete');
+                                    toggleApprove('categories.php?edit_cat',$cat['category_id'],'warning','edit_cat','pencil-square-o fa-2','Edit');
+                                    toggleApprove('categories.php?delete_cat',$cat['category_id'],'danger','delete_cat','trash-o fa-2','Delete');
                                   ?>
 	                                <?php
                                     $cat_status = $cat['category_status'];
 									 if($cat_status=="1"){
-                                       edit_delete_link('categories.php?active',$cat['category_id'],
+                                       toggleApprove('categories.php?active',$cat['category_id'],
                                         'success','','check','active');
                                      }else{
-                                        edit_delete_link('categories.php?disable',$cat['category_id'],'danger',
+                                        toggleApprove('categories.php?disable',$cat['category_id'],'danger',
                                         '','lock','disabled');
                                      }
                                        ?>

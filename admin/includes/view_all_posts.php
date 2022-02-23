@@ -89,16 +89,16 @@ if($posts_count > 0){
                                     <?php
                                     $post_status = $row['post_status'];
 									 if($post_status=="published"){
-                                       edit_delete_link('view_posts.php?published',$row['post_id'],
+                                       toggleApprove('view_posts.php?published',$row['post_id'],
                                         'success','','check',$row['post_status']);
                                      }else{
-                                        edit_delete_link('view_posts.php?draft',$row['post_id'],'danger',
+                                        toggleApprove('view_posts.php?draft',$row['post_id'],'danger',
                                         '','lock',$row['post_status']);
                                      }
                                        ?>
                                    
                                     <?php
-									edit_delete_link('view_posts.php?source=edit_post&post_id',$row['post_id'],
+									toggleApprove('view_posts.php?source=edit_post&post_id',$row['post_id'],
                                     'warning','','pencil-square-o','Edit');
                                     ?>
 									
