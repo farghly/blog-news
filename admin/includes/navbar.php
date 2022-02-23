@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../index.php" target="_blank"><img src="img/future_logo2.png" alt="logo here" height="35" width="120" style="margin-top:-5px;"/></a>
+                <a class="navbar-brand" href="../index.php" target="_blank"><img src="assets/img/future_logo2.png" alt="logo here" height="35" width="120" style="margin-top:-5px;"/></a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -98,10 +98,10 @@
                       <?php 
                       $author_image =$author_info['author_image'];
                      if($author_image==""){?>
-                    <img class="media-object img-circle" src="img/mmdoh1.jpg" width="76" height="76" style="margin-left:auto; margin-right:auto; display:block">
+                    <img class="media-object img-circle" src="assets/img/mmdoh1.jpg" width="76" height="76" style="margin-left:auto; margin-right:auto; display:block">
                     <?php }else{ 
                     ?>
-					<img class="media-object img-circle" src="img/profile/<?= $author_image;?>" width="76" height="76" style="margin-left:auto; margin-right:auto; display:block">	
+					<img class="media-object img-circle" src="assets/img/profile/<?= $author_image;?>" width="76" height="76" style="margin-left:auto; margin-right:auto; display:block">	
 				<?php } ?>
 					</a>
 					<div class="media-body" style="color:white">
@@ -209,13 +209,13 @@
 
 <?php
     if($author_image !=""){
-     $_SESSION['delete_image'] = 'img/profile/'.$author_image;   
+     $_SESSION['delete_image'] = 'assets/img/profile/'.$author_image;   
     }
     $user_id = $_SESSION['author_id']; 
     if(isset($_POST['update_profile'])){
       $user_image      = date('d-m-Y H').$_FILES['add_image']['name'];
       $user_image_temp = $_FILES['add_image']['tmp_name'];
-      move_uploaded_file($user_image_temp,"img/profile/$user_image");
+      move_uploaded_file($user_image_temp,"assets/img/profile/$user_image");
       $profile_update = updateTable('authors','author_image',$user_image,'author_id',$user_id);
     if($profile_update){
        unlink($_SESSION['delete_image']);

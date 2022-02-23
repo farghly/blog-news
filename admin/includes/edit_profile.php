@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-               <img class="media-object img-circle" src="img/profile/<?= $author_info['author_image'];?>" width="150" height="150" style="margin:0 auto;" >
+               <img class="media-object img-circle" src="assets/img/profile/<?= $author_info['author_image'];?>" width="150" height="150" style="margin:0 auto;" >
             </div>
         </div>
         

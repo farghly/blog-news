@@ -17,17 +17,17 @@ if(!isset($_SESSION['author_email']) && !isset($_SESSION['author_password'])) {
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Admin Panel</title>
-    <link rel="shortcut icon" href="img/favicon_3.png">
+    <link rel="shortcut icon" href="assets/img/favicon_3.png">
     <!-- Bootstrap Core CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
    <!--	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">-->
-    <link rel="stylesheet" href="css/css_tag.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/css_tag.css" type="text/css">
     <!-- Custom CSS -->
-    <link href="css/bootstrap-tagsinput.css" type="text/css" rel="stylesheet" />
-	 <link href="css/style.css" rel="stylesheet">
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-tagsinput.css" type="text/css" rel="stylesheet" />
+	 <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/sb-admin.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css">
 	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">  -->
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -50,7 +50,7 @@ if(isset($_GET['post_id'])|| $link == $url) :?>
     <script src="https://cdn.tiny.cloud/1/ob2z96bqz0k2wmu95zjfl2n4n4pzmmmlsl2zovinrp97sr56/tinymce/5/tinymce.min.js" 
      referrerpolicy="origin"></script>
   <script>tinymce.init({selector:'textarea',plugins: 'table'});</script>
-  <link rel="stylesheet" href="css/bootstrap-tagsinput.css" type="text/css">
+  <link rel="stylesheet" href="assets/css/bootstrap-tagsinput.css" type="text/css">
 <?php endif; ?>
 </head>
 <body>

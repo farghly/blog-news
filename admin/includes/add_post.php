@@ -9,7 +9,7 @@
             $post_status       = $_POST['post_status'];
             $post_content      =$_POST['post_content'];
      
-   move_uploaded_file($post_image_temp,"img/products/$post_image");
+   move_uploaded_file($post_image_temp,"assets/img/products/$post_image");
     $array_fields=array('author_id','category_id','post_title','post_content','post_tags','post_image','post_status');
     $columns = "`".implode('`,', array_values($array_fields))."`";
    

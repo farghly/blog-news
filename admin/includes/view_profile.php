@@ -21,9 +21,9 @@
                 <?php 
                  $user_image = $author_info['author_image'];
                  if($user_image== ""){ ?>
-                  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Picture" src="img/mmdoh1.jpg" class="img-circle img-responsive"> </div>
+                  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Picture" src="assets/img/mmdoh1.jpg" class="img-circle img-responsive"> </div>
                 <?php }else{?>
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Picture" src="img/profile/<?= $user_image;?>" class="img-circle img-responsive"> </div>
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Picture" src="assets/img/profile/<?= $user_image;?>" class="img-circle img-responsive"> </div>
                 <?php } ?>
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">

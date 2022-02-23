@@ -58,7 +58,7 @@ if(isset($_POST['adduser'])){
     $user_password   = $_POST['user_password'];
     $user_image      = $_FILES['add_image']['name'];
     $user_image_temp = $_FILES['add_image']['tmp_name'];
-    move_uploaded_file($user_image_temp,"img/profile/$user_image");
+    move_uploaded_file($user_image_temp,"assets/img/profile/$user_image");
  
     $user_password =sha1($user_password);
     $query = $connect->prepare("INSERT INTO authors (author_fname,author_lname,author_email,author_password,author_role,author_image) VALUES ('$firstname','$lastname','$user_email','$user_password','$user_role','{$user_image}')");

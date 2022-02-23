@@ -84,7 +84,7 @@ if($posts_count > 0){
                                         </td>
                                         <!--<td><?= $row['post_tags']; ?></td>-->
                                         <td><?= $row['category_name']; ?></td>
-                                        <td><img src="img/products/<?= $row['post_image'];?>" alt="No image" height="50" width="50"/></td>
+                                        <td><img src="assets/img/products/<?= $row['post_image'];?>" alt="No image" height="50" width="50"/></td>
  
                                     <?php
                                     $post_status = $row['post_status'];

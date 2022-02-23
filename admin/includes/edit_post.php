@@ -48,7 +48,7 @@
         if($post_img ==''){
             echo 'No image';
         }else{?>
-        <img src="img/products/<?= $post_img?>" width="50" height="50" >
+        <img src="assets/img/products/<?= $post_img?>" width="50" height="50" >
         <?php }  ?>
        
 	</div>
@@ -77,7 +77,7 @@
 		$post_tags         = $_POST['post_tags'];
 		$post_date         = date('d-m-y');
 		$post_status       = $_POST['post_status'];
-   	    move_uploaded_file($post_image_temp,"img/products/$post_image");
+   	    move_uploaded_file($post_image_temp,"assets/img/products/$post_image");
 	    if(empty($post_image)){
           $post_image = $post_info['post_image'];
           }
