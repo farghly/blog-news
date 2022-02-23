@@ -13,7 +13,12 @@
     $array_fields=array('author_id','category_id','post_title','post_content','post_tags','post_image','post_status');
     $columns = "`".implode('`,', array_values($array_fields))."`";
    
-	$query_exec = $connect ->prepare("INSERT INTO posts (author_id,category_id,post_title,post_content,post_tags,post_image,post_status)Values('{$_SESSION['author_id']}','{$post_category_id}','{$post_title}','{$post_content}','{$post_tags}','{$post_image}','{$post_status}')");
+	$query_exec = $connect ->prepare("INSERT INTO posts (author_id,category_id,post_title,
+                                                         post_content,post_tags,post_image,post_status)
+                                                         Values('{$_SESSION['author_id']}','{$post_category_id}',
+                                                         '{$post_title}','{$post_content}','{$post_tags}',
+                                                         '{$post_image}','{$post_status}')"
+                                                         );
      $InsertData =$query_exec->execute();
 	if($InsertData){
         SessionMessage('message_success','post created sucussfully');

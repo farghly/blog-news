@@ -81,7 +81,15 @@
 	    if(empty($post_image)){
           $post_image = $post_info['post_image'];
           }
-		 $query_update  =$connect->query("UPDATE posts SET post_title='{$post_title}',author_id='{$_SESSION['author_id']}',category_id ='{$post_category}',post_tags='{$post_tags}' ,post_content='{$post_content}',post_status='{$post_status}',post_image='{$post_image}' WHERE post_id='{$the_post_id}'");
+		 $query_update  =$connect->query("UPDATE posts SET post_title='{$post_title}',
+		                                                  author_id='{$_SESSION['author_id']}',
+														  category_id ='{$post_category}',
+														  post_tags='{$post_tags}' ,
+														  post_content='{$post_content}',
+														  post_status='{$post_status}',
+														  post_image='{$post_image}' 
+														  WHERE post_id='{$the_post_id}'"
+														  );
           $run_query = $query_update->execute();
           if($run_query){
           SessionMessage('message_success','post updated successfully');
