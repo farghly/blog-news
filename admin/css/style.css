@@ -20,7 +20,7 @@ body{
 }
 .block{
     display: inline-block;
-    float: left;
+    /* float: left; */
 }
 .alert-success,.alert-danger{
    display: block;
@@ -48,4 +48,7 @@ span.tag.label.label-info{
 }
 li{
     list-style: none;
+}
+#columnchart_material{
+    margin: 0 auto;
 }
