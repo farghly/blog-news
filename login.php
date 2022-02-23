@@ -8,7 +8,7 @@
         <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
         <!-- Css files -->
         <!-- Icons -->
-        <link href="admin/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="admin/assets/css/font-awesome.min.css" rel="stylesheet" />
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
         <link href="assets/css/plugins.css" rel="stylesheet" />
         <link href="assets/css/login.css" rel="stylesheet" />
