@@ -27,9 +27,9 @@ if(isset($_POST['login'])){
         Locator::pageLocationSpecial("../admin/");
     }elseif($user_email === $db_email && $password ===$db_pass && $author_status=='0'){
         $_SESSION['active_account']="You must active account by admin";
-        Locator::pageLocationSpecial("../login");
+        Locator::pageLocation("../login");
     }else{
        $_SESSION['error_login']="Error in email or password";
-       Locator::pageLocationSpecial("../login"); 
+       Locator::pageLocation("../login"); 
     }     
 }
