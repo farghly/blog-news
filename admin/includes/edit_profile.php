@@ -11,7 +11,11 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
+            <?php if(!empty($author_info['author_image'])):?>
                <img class="media-object img-circle" src="assets/img/profile/<?= $author_info['author_image'];?>" width="150" height="150" style="margin:0 auto;" >
+               <?php else:?>
+                <img class="media-object img-circle" src="assets/img/profile/avatar.jpg" width="150" height="150" style="margin:0 auto;" >
+                <?php endif;?>
             </div>
         </div>
         
@@ -69,7 +73,7 @@
                        }
                           $query->execute();
                           SessionMessage('update_data','Data update successfully');
-                          pageLocation("index");
+                          pageLocation("users");
 							
 						}	
 		  ?>
