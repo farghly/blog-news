@@ -52,3 +52,10 @@ li{
 #columnchart_material{
     margin: 0 auto;
 }
+
+/* 
+editor settings 
+*/
+.tox .tox-notification--warn, .tox .tox-notification--warning{
+    display: none !important;
+}
