@@ -84,8 +84,11 @@ if($posts_count > 0){
                                         </td>
                                         <!--<td><?= $row['post_tags']; ?></td>-->
                                         <td><?= $row['category_name']; ?></td>
+                                        <?php if(!empty($row['post_image']) ){?>
                                         <td><img src="assets/img/products/<?= $row['post_image'];?>" alt="No image" height="50" width="50"/></td>
- 
+                                        <?php }else{?>
+                                        <td>No image</td>
+                                        <?php }?>
                                     <?php
                                     $post_status = $row['post_status'];
 									 if($post_status=="published"){
