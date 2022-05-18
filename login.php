@@ -93,7 +93,7 @@ function SessionDisplay($type,$message_name){
        
        <script type="text/javascript" src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.js"></script>
-        <script src="assets/js/script.js"></script>       
+        <!-- <script src="assets/js/script.js"></script>        -->
  
     </body>
 </html>
