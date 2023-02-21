@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `loca_pro`.`authors` (
   `author_lname` VARCHAR(45) NULL,
   `author_registerDate` DATETIME NULL,
   `author_status` VARCHAR(2) NULL,
+  `author_role` VARCHAR(7) NULL,
   PRIMARY KEY (`author_id`))
 ENGINE = InnoDB;
 

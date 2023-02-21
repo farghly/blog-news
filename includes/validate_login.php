@@ -11,7 +11,8 @@ if(isset($_POST['login'])){
 //$query->bindValue(':user_email', $_POST['user-emai']);
   $getresult  = $query->fetch(PDO::FETCH_ASSOC);
   if(!$getresult){
-      echo 'failed';
+    $_SESSION['error_login']="Error in email or password";
+    Locator::pageLocation("../login"); 
   }     
      $author_id     = $getresult['author_id'];
      $author_status = $getresult['author_status'];
@@ -28,8 +29,5 @@ if(isset($_POST['login'])){
     }elseif($user_email === $db_email && $password ===$db_pass && $author_status=='0'){
         $_SESSION['active_account']="You must active account by admin";
         Locator::pageLocation("../login");
-    }else{
-       $_SESSION['error_login']="Error in email or password";
-       Locator::pageLocation("../login"); 
-    }     
+    }   
 }
