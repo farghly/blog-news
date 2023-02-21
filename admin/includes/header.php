@@ -40,7 +40,8 @@ if(!isset($_SESSION['author_email']) && !isset($_SESSION['author_password'])) {
 $link = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $urldashborad =$_SERVER['HTTP_HOST']."/admin/";
 $urldashboradindex =$_SERVER['HTTP_HOST']."/admin/index.php";
-if($_SESSION['author_role']=="admin" && ($urldashborad==$link || $urldashboradindex==$link)):
+//if($_SESSION['author_role']=="admin" && ($urldashborad==$link || $urldashboradindex==$link)):
+if($_SESSION['author_role']=="admin"):
 ?>
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 <?php endif; 
