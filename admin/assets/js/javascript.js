@@ -42,10 +42,10 @@ $(document).ready(function(){
     /*========== end of script  shift+click to select checkbox*/
 });
 
-$("input").keypress(function(event) {
-    if (event.which == 13) {
-        event.preventDefault();
-        //return false;
-        //$("form").submit();
+// *https://stackoverflow.com/q/37973713/5661396
+$('.bootstrap-tagsinput input').keydown(function( event ) {
+    if ( event.which = 13 ) {
+        event.preventdefault();
+        return false;
     }
 });

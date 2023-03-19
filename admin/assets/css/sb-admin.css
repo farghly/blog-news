@@ -103,7 +103,7 @@ div.media-body{
 
 .top-nav>li {
     display: inline-block;
-    float: left;
+    /* float: left; */
 }
 
 
@@ -478,6 +478,7 @@ form{
     margin-bottom: 17px;
 }
 .btn-pref .btn {
+    border-radius:0 !important;
     -webkit-border-radius:0 !important;
 }
 
@@ -497,7 +498,7 @@ form{
 }
 .modal .modal-footer {
   border-top: none;
-  padding: 0;
+  padding: 0 8px 8px !important;
 }
 .modal .modal-footer .btn-group > .btn:first-child {
   border-bottom-left-radius: 0;
